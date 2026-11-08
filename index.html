@@ -40,7 +40,10 @@ kbd{font:11px ui-monospace,Consolas,monospace;border:1px solid var(--line);borde
 .piece{display:inline-flex;align-items:center;gap:4px}
 .score{position:relative}.score .flash{position:absolute;inset:-2px -6px;border-radius:999px;background:#ff9f5e66;opacity:0}.score .flash.on{animation:flash .7s ease-out}.score .num{position:relative}
 @keyframes flash{0%{opacity:1}100%{opacity:0}}
-.shield{display:inline-flex}
+.shield{display:inline-flex;gap:2px}
+@media (max-width:480px){.hud #best{display:none}}
+.meter{display:inline-flex;gap:1px}.meter i{width:6px;height:10px;border-radius:2px;border:1px solid color-mix(in oklab,var(--fg) 30%,transparent)}.meter i.on{background:#ff9f5e;border-color:color-mix(in oklab,var(--fg) 60%,transparent)}
+[dir=rtl] .boost .fwd{transform:scaleX(-1)}
 .boost{position:relative;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;animation:pop .3s ease both}
 .boost .ring{position:absolute;inset:0}.boost .bg{fill:var(--bg);stroke:var(--line)}.boost .arc{fill:none;stroke:#ff9f5e;stroke-width:2;stroke-linecap:round}
 .boost .icon{position:relative;display:inline-flex}.boost .icon svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
@@ -67,18 +70,18 @@ kbd{font:11px ui-monospace,Consolas,monospace;border:1px solid var(--line);borde
 <main>
  <div class="logo">nothing</div>
  <section class="card" id="card">
-  <button class="friend-btn" id="start" type="button"><span class="friend" id="friend"><svg class="nf" viewBox="26 11 44 44" aria-hidden="true" focusable="false" data-variant="notFound"><path d="M36.5 46V51.1Q36.5 53 38.4 53H43.6Q45.5 53 45.5 51.1V46Z" class="nf-fill"></path><path d="M50.5 46V51.1Q50.5 53 52.4 53H57.6Q59.5 53 59.5 51.1V46Z" class="nf-fill"></path><path d="M65.5 34.1L65.482 35.245L65.427 36.19L65.335 37.068L65.207 37.903L65.043 38.703L64.843 39.472L64.607 40.215L64.336 40.932L64.029 41.623L63.689 42.29L63.314 42.931L62.905 43.547L62.464 44.138L61.99 44.703L61.484 45.241L60.947 45.752L60.379 46.235L59.781 46.691L59.153 47.117L58.497 47.515L57.812 47.882L57.1 48.22L56.359 48.527L55.591 48.802L54.795 49.046L53.969 49.259L53.114 49.439L52.225 49.587L51.298 49.702L50.322 49.784L49.272 49.834L48 49.85L46.728 49.834L45.678 49.784L44.702 49.702L43.775 49.587L42.886 49.439L42.031 49.259L41.205 49.046L40.409 48.802L39.641 48.527L38.9 48.22L38.188 47.882L37.503 47.515L36.847 47.117L36.219 46.691L35.621 46.235L35.053 45.752L34.516 45.241L34.01 44.703L33.536 44.138L33.095 43.547L32.686 42.931L32.311 42.29L31.971 41.623L31.664 40.932L31.393 40.215L31.157 39.472L30.957 38.703L30.793 37.903L30.665 37.068L30.573 36.19L30.518 35.245L30.5 34.1L30.518 32.955L30.573 32.01L30.665 31.132L30.793 30.297L30.957 29.497L31.157 28.728L31.393 27.985L31.664 27.268L31.971 26.577L32.311 25.91L32.686 25.269L33.095 24.653L33.536 24.062L34.01 23.497L34.516 22.959L35.053 22.448L35.621 21.965L36.219 21.509L36.847 21.083L37.503 20.685L38.188 20.318L38.9 19.98L39.641 19.673L40.409 19.398L41.205 19.154L42.031 18.941L42.886 18.761L43.775 18.613L44.702 18.498L45.678 18.416L46.728 18.366L48 18.35L49.272 18.366L50.322 18.416L51.298 18.498L52.225 18.613L53.114 18.761L53.969 18.941L54.795 19.154L55.591 19.398L56.359 19.673L57.1 19.98L57.812 20.318L58.497 20.685L59.153 21.083L59.781 21.509L60.379 21.965L60.947 22.448L61.484 22.959L61.99 23.497L62.464 24.062L62.905 24.653L63.314 25.269L63.689 25.91L64.029 26.577L64.336 27.268L64.607 27.985L64.843 28.728L65.043 29.497L65.207 30.297L65.335 31.132L65.427 32.01L65.482 32.955Z" class="nf-fill"></path><path d="M47.2 19.65C47 16.15 48.1 12.95 51.9 12.55" class="nf-line" stroke-width="1.9"></path><ellipse cx="38.3" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="57.7" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="48" cy="39.7" rx=".78" ry=".95" class="nf-ink"></ellipse><path class="nf-eyes" d="M40.541 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0ZM51.041 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0Z"></path><path class="nf-line nf-arcs" d=""></path><g transform="rotate(35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><g transform="rotate(-35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><circle cx="35.525" cy="41.325" r="1.35" class="nf-fill"></circle><path d="M36.35 40.4L36.321 40.981L36.234 41.483L36.09 41.945L35.89 42.37L35.638 42.756L35.337 43.1L34.988 43.398L34.597 43.646L34.166 43.843L33.697 43.985L33.189 44.071L32.6 44.1L32.011 44.071L31.503 43.985L31.034 43.843L30.603 43.646L30.212 43.398L29.863 43.1L29.562 42.756L29.31 42.37L29.11 41.945L28.966 41.483L28.879 40.981L28.85 40.4L28.879 39.819L28.966 39.317L29.11 38.855L29.31 38.43L29.562 38.044L29.863 37.7L30.212 37.402L30.603 37.154L31.034 36.957L31.503 36.815L32.011 36.729L32.6 36.7L33.189 36.729L33.697 36.815L34.166 36.957L34.597 37.154L34.988 37.402L35.337 37.7L35.638 38.044L35.89 38.43L36.09 38.855L36.234 39.317L36.321 39.819Z" class="nf-fill"></path><circle cx="60.475" cy="41.525" r="1.35" class="nf-fill"></circle><path d="M67.15 40.6L67.121 41.181L67.034 41.683L66.89 42.145L66.69 42.57L66.438 42.956L66.137 43.3L65.788 43.598L65.397 43.846L64.966 44.043L64.497 44.185L63.989 44.271L63.4 44.3L62.811 44.271L62.303 44.185L61.834 44.043L61.403 43.846L61.012 43.598L60.663 43.3L60.362 42.956L60.11 42.57L59.91 42.145L59.766 41.683L59.679 41.181L59.65 40.6L59.679 40.019L59.766 39.517L59.91 39.055L60.11 38.63L60.362 38.244L60.663 37.9L61.012 37.602L61.403 37.354L61.834 37.157L62.303 37.015L62.811 36.929L63.4 36.9L63.989 36.929L64.497 37.015L64.966 37.157L65.397 37.354L65.788 37.602L66.137 37.9L66.438 38.244L66.69 38.63L66.89 39.055L67.034 39.517L67.121 40.019Z" class="nf-fill"></path><g class="nf-q" opacity="0.454" transform="translate(0 0.304)"><path d="M62.6 16.4q0-2.5 2.4-2.5t2.4 2.3q0 1.5-1.9 2.3v1.5" class="nf-line" stroke-width="1.15"></path><circle cx="65.5" cy="22.3" r=".72" class="nf-ink"></circle></g></svg></span><span class="ground"></span></button>
+  <button class="friend-btn" id="start" type="button"><span class="friend" id="friend"><svg class="nf" viewBox="26 11 44 44" aria-hidden="true" focusable="false" data-variant="notFound"><path d="M36.5 46V51.1Q36.5 53 38.4 53H43.6Q45.5 53 45.5 51.1V46Z" class="nf-fill"></path><path d="M50.5 46V51.1Q50.5 53 52.4 53H57.6Q59.5 53 59.5 51.1V46Z" class="nf-fill"></path><path d="M65.5 34.1L65.482 35.245L65.427 36.19L65.335 37.068L65.207 37.903L65.043 38.703L64.843 39.472L64.607 40.215L64.336 40.932L64.029 41.623L63.689 42.29L63.314 42.931L62.905 43.547L62.464 44.138L61.99 44.703L61.484 45.241L60.947 45.752L60.379 46.235L59.781 46.691L59.153 47.117L58.497 47.515L57.812 47.882L57.1 48.22L56.359 48.527L55.591 48.802L54.795 49.046L53.969 49.259L53.114 49.439L52.225 49.587L51.298 49.702L50.322 49.784L49.272 49.834L48 49.85L46.728 49.834L45.678 49.784L44.702 49.702L43.775 49.587L42.886 49.439L42.031 49.259L41.205 49.046L40.409 48.802L39.641 48.527L38.9 48.22L38.188 47.882L37.503 47.515L36.847 47.117L36.219 46.691L35.621 46.235L35.053 45.752L34.516 45.241L34.01 44.703L33.536 44.138L33.095 43.547L32.686 42.931L32.311 42.29L31.971 41.623L31.664 40.932L31.393 40.215L31.157 39.472L30.957 38.703L30.793 37.903L30.665 37.068L30.573 36.19L30.518 35.245L30.5 34.1L30.518 32.955L30.573 32.01L30.665 31.132L30.793 30.297L30.957 29.497L31.157 28.728L31.393 27.985L31.664 27.268L31.971 26.577L32.311 25.91L32.686 25.269L33.095 24.653L33.536 24.062L34.01 23.497L34.516 22.959L35.053 22.448L35.621 21.965L36.219 21.509L36.847 21.083L37.503 20.685L38.188 20.318L38.9 19.98L39.641 19.673L40.409 19.398L41.205 19.154L42.031 18.941L42.886 18.761L43.775 18.613L44.702 18.498L45.678 18.416L46.728 18.366L48 18.35L49.272 18.366L50.322 18.416L51.298 18.498L52.225 18.613L53.114 18.761L53.969 18.941L54.795 19.154L55.591 19.398L56.359 19.673L57.1 19.98L57.812 20.318L58.497 20.685L59.153 21.083L59.781 21.509L60.379 21.965L60.947 22.448L61.484 22.959L61.99 23.497L62.464 24.062L62.905 24.653L63.314 25.269L63.689 25.91L64.029 26.577L64.336 27.268L64.607 27.985L64.843 28.728L65.043 29.497L65.207 30.297L65.335 31.132L65.427 32.01L65.482 32.955Z" class="nf-fill"></path><path d="M47.2 19.65C47 16.15 48.1 12.95 51.9 12.55" class="nf-line" stroke-width="1.9"></path><ellipse cx="38.3" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="57.7" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="48" cy="39.7" rx=".78" ry=".95" class="nf-ink"></ellipse><path class="nf-eyes" d="M40.539 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0ZM51.039 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0Z"></path><path class="nf-line nf-arcs" d=""></path><g transform="rotate(35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><g transform="rotate(-35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><circle cx="35.525" cy="41.325" r="1.35" class="nf-fill"></circle><path d="M36.35 40.4L36.321 40.981L36.234 41.483L36.09 41.945L35.89 42.37L35.638 42.756L35.337 43.1L34.988 43.398L34.597 43.646L34.166 43.843L33.697 43.985L33.189 44.071L32.6 44.1L32.011 44.071L31.503 43.985L31.034 43.843L30.603 43.646L30.212 43.398L29.863 43.1L29.562 42.756L29.31 42.37L29.11 41.945L28.966 41.483L28.879 40.981L28.85 40.4L28.879 39.819L28.966 39.317L29.11 38.855L29.31 38.43L29.562 38.044L29.863 37.7L30.212 37.402L30.603 37.154L31.034 36.957L31.503 36.815L32.011 36.729L32.6 36.7L33.189 36.729L33.697 36.815L34.166 36.957L34.597 37.154L34.988 37.402L35.337 37.7L35.638 38.044L35.89 38.43L36.09 38.855L36.234 39.317L36.321 39.819Z" class="nf-fill"></path><circle cx="60.475" cy="41.525" r="1.35" class="nf-fill"></circle><path d="M67.15 40.6L67.121 41.181L67.034 41.683L66.89 42.145L66.69 42.57L66.438 42.956L66.137 43.3L65.788 43.598L65.397 43.846L64.966 44.043L64.497 44.185L63.989 44.271L63.4 44.3L62.811 44.271L62.303 44.185L61.834 44.043L61.403 43.846L61.012 43.598L60.663 43.3L60.362 42.956L60.11 42.57L59.91 42.145L59.766 41.683L59.679 41.181L59.65 40.6L59.679 40.019L59.766 39.517L59.91 39.055L60.11 38.63L60.362 38.244L60.663 37.9L61.012 37.602L61.403 37.354L61.834 37.157L62.303 37.015L62.811 36.929L63.4 36.9L63.989 36.929L64.497 37.015L64.966 37.157L65.397 37.354L65.788 37.602L66.137 37.9L66.438 38.244L66.69 38.63L66.89 39.055L67.034 39.517L67.121 40.019Z" class="nf-fill"></path><g class="nf-q" opacity="0.452" transform="translate(0 0.301)"><path d="M62.6 16.4q0-2.5 2.4-2.5t2.4 2.3q0 1.5-1.9 2.3v1.5" class="nf-line" stroke-width="1.15"></path><circle cx="65.5" cy="22.3" r=".72" class="nf-ink"></circle></g></svg></span><span class="ground"></span></button>
   <div class="band" id="band" hidden role="group">
    <canvas id="canvas" aria-hidden="true"></canvas>
    <div class="hud">
     <button class="icon-btn" id="pause" type="button"></button>
     <span class="piece"><svg width="12" height="14" viewBox="-6 -7.5 12 15" aria-hidden="true"><path d="M-5 -6.5H2.4L5 -3.9V5.2L3.2 6.4 1.6 5.2 0 6.4-1.6 5.2-3.2 6.4-5 5.2Z" fill="#ff9f5e" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg><span class="num" id="pieces"></span></span>
-    <span class="shield" id="shield" role="img" hidden><svg width="16" height="10" viewBox="-8 -5 16 10" aria-hidden="true"><g transform="rotate(-20)" stroke="currentColor"><rect x="-6.5" y="-1.9" width="13" height="3.8" rx="1.9" fill="#f4d4b1" stroke-width=".9"/><rect x="-1.6" y="-1.9" width="3.2" height="3.8" fill="#fbe8d4" stroke-width=".55"/></g></svg></span>
+    <span class="meter" id="meter" role="img"></span><span class="shield" id="shield" role="img" hidden></span>
     <span class="boost" id="boost" role="img" hidden></span>
     <span class="grow"></span><span class="muted" id="best"></span><span class="mult" id="mult" role="img" hidden></span><span class="score"><span class="flash" id="flash"></span><span class="num" id="score"></span></span>
    </div>
    <div class="overlay center" id="paused" hidden><div><b data-t="paused">متوقف شد</b><button class="btn outline sm" id="resume" type="button" data-t="resume">ادامه</button></div></div>
-   <div class="overlay" id="over" hidden><div><b id="overTitle"></b><small class="rec" id="overNote"></small><div class="row"><button class="btn outline sm" id="again" type="button" data-t="again">دوباره</button><a class="btn primary sm" href="#" data-t="home">خانه</a></div></div></div>
+   <div class="overlay" id="over" hidden><div><b id="overTitle"></b><small class="rec" id="overNote"></small><small id="overRecap"></small><div class="row"><button class="btn outline sm" id="again" type="button" data-t="again">دوباره</button><a class="btn primary sm" href="#" data-t="home">خانه</a></div></div></div>
    <div id="toastSlot"></div>
   </div>
   <div class="title" data-t="title">صفحه پیدا نشد</div>
@@ -234,7 +237,12 @@ globalThis.NothingFriendBox=Object.freeze({mount,svg,variants:Object.fromEntries
  * see through fog), the sneakers jump once more in the air, the scarf glides
  * while held, the skateboard doubles the points and gold brings a free
  * band-aid every 1000 points. A mystery parcel may hold a short boost: a
- * bubble, a strong magnet, slow motion, triple points or a jet.
+ * bubble, a strong magnet, slow motion, triple points, a jet or a shortcut
+ * (a fast dash that knocks everything aside).
+ * Orange pages fill a meter: every 10 make the powers and boosts stronger
+ * (a bump costs 10), every 100 bring a band-aid. Band-aids stack; a third one
+ * means fully patched: a shortcut dash, then back to two. Folders lie on the
+ * track: land on one to break it open for pages and a bounce.
  * Clearing things builds a combo (up to x5); a bump spends it. Every 2000
  * points a rush runs faster and harder for double points, then a breather.
  * Loaded on demand from the 404 page; the HUD and buttons live in the DOM.
@@ -376,7 +384,9 @@ function eyePaths(
 return {BODY, COLORS, mitten, superellipse};
 })();
 /** A short power from a mystery parcel. */
-                                                                   
+                                                                            
+/** Something a box (or the pages) gave that is not gear or a boost. */
+                                                                             
 
                            
               
@@ -407,15 +417,19 @@ return {BODY, COLORS, mitten, superellipse};
                                   
                                     
                                      
-                                     
+                                                                              
+                                  
+                                                                                
+                                  
                       
                                                                
                                  
      
                                                                                
-                                                                             
+                                                                        
+                                                  
      
-                                                                          
+                                                      
                                                                       
                                                          
                                                                               
@@ -429,6 +443,10 @@ return {BODY, COLORS, mitten, superellipse};
                   
                                                           
                     
+                                               
+                     
+                   
+                  
             
  
 
@@ -454,6 +472,12 @@ return {BODY, COLORS, mitten, superellipse};
                                                                       
                 
                  
+                   
+                                
+                
+                                                          
+                 
+                      
                    
                     
                 
@@ -511,6 +535,8 @@ return {BODY, COLORS, mitten, superellipse};
               
                                                                       
                
+                                         
+               
  
            
           
@@ -525,6 +551,7 @@ return {BODY, COLORS, mitten, superellipse};
          
              
              
+            
               
             
            
@@ -569,6 +596,7 @@ return {BODY, COLORS, mitten, superellipse};
              
            
           
+            
              
             
             
@@ -618,9 +646,30 @@ const BOOSTS                        = {
   slow: 5,
   triple: 8,
   jet: 4,
+  dash: 5,
 }
+/** The shortcut: the world rushes by and everything hit is knocked aside. */
+const DASH_PACE = 1.6
+/** Fully patched (a third band-aid): a longer shortcut. */
+const PATCHED = 6
+/** The page meter: 10 pages a level, five levels; a bump costs a level. */
+const METER_STEP = 10
+const METER_TOP = 50
+/** Every this many pages bring a band-aid. */
+const PAGES_AID = 100
+/** Folders: how tall, the pages inside and the bounce off the top. */
+const FOLDER_H = 16
+const FOLDER_PAGES = 5
+const BOUNCE = 340
+/** A moment over a hole's edge before Nothing falls in (time to jump). */
+const COYOTE = 0.1
+/** Physics runs in fixed steps, the same on every screen refresh rate. */
+const STEP = 1 / 120
+const MANILA = "#f2d29b"
 const BOOST_KINDS = Object.keys(BOOSTS)           
-const SLOW_PACE = 0.7
+/** Slow motion: never so slow that a full jump cannot clear three blocks. */
+const SLOW_PACE = 0.75
+const SLOW_FLOOR = 260
 const JET_PACE = 1.5
 /** The jet flies just over the highest link, low enough to catch boxes. */
 const JET_Y = 64
@@ -663,6 +712,7 @@ const SKILLS                            = [
   ["spinner", ZONE, ZONE],
   ["popup", 2 * ZONE, 2 * ZONE],
   ["hole", 3 * ZONE, 3 * ZONE],
+  ["folder", 250, 450],
 ]
 const LOW_Y = G - 26
 const MID_Y = G - 40
@@ -722,6 +772,7 @@ function half(o                                       ) {
   if (o.kind === "hole" || o.kind === "chasm") return o.w ?? 20
   if (o.kind === "pad") return 11
   if (o.kind === "gearbox" || o.kind === "mystery") return 12
+  if (o.kind === "folder") return 11
   return 8
 }
 
@@ -797,6 +848,13 @@ function createGame(canvas                   , opts             )       {
   let doubled = false
   let gliding = false
   let flipT = 0
+  let aids = 0
+  let meter = 0
+  let folders = 0
+  let boostsCaught = 0
+  let bestCombo = 1
+  let holeT = 0
+  let acc = 0
   let things          = []
   /** world x where the next pattern starts (never depends on screen width) */
   let nextX = 0
@@ -832,7 +890,6 @@ function createGame(canvas                   , opts             )       {
   let air = false
   let happy = 0
   let overT = 0
-  let shield = false
   let safe = 0
   let stumble = 0
   let nearT = 0
@@ -882,6 +939,10 @@ function createGame(canvas                   , opts             )       {
     pts >= RUSH_EVERY &&
     pts % RUSH_EVERY >= RUSH_LEN &&
     pts % RUSH_EVERY < RUSH_LEN + BREATH_LEN
+  const shield = () => aids > 0
+  const level = () => Math.floor(meter / METER_STEP)
+  /** how much stronger the powers are at this meter level */
+  const strong = (per        ) => 1 + per * level()
   const comboK = () => Math.min(COMBO_TOP, 1 + Math.floor(combo / COMBO_STEP))
   const multiplierNow = () =>
     comboK() *
@@ -896,7 +957,8 @@ function createGame(canvas                   , opts             )       {
     o.kind === "tile2" ||
     o.kind === "link" ||
     o.kind === "spinner" ||
-    o.kind === "popup"
+    o.kind === "popup" ||
+    o.kind === "folder"
 
   /** Scraps on the arc a full jump would draw over `dx0`..`dx0 + span`. */
   const arcScraps = (dx0        , span        , count        , lift = 0) =>
@@ -908,6 +970,12 @@ function createGame(canvas                   , opts             )       {
         y: G - 18 - lift - Math.sin(u * Math.PI) * 44,
       }
     })
+
+  /** Pages along a bounce off a folder at `dx`: at its top and where it lands. */
+  const bounceScraps = (dx        )         => [
+    { kind: "scrap", dx: dx + sec(0.22), y: G - FOLDER_H - 50 },
+    { kind: "scrap", dx: dx + sec(0.45), y: G - 18 },
+  ]
 
   // Hand-made patterns. Gaps come from the jump physics at the current speed,
   // so every one of them can be cleared.
@@ -1085,6 +1153,28 @@ function createGame(canvas                   , opts             )       {
       },
     },
     {
+      id: "folder",
+      diff: 0.2,
+      needs: ["folder"],
+      // pages along the bounce: one at its top, one where it lands
+      build: () => [{ kind: "folder", dx: 0 }, ...bounceScraps(0)],
+    },
+    {
+      id: "folders",
+      diff: 0.45,
+      needs: ["folder", "pair"],
+      // close enough that a bounce off the first, or a full jump over it,
+      // comes down on the second (or past it), never just short of it
+      build: () => {
+        const gap = Math.max(34, sec(0.5) - 56)
+        return [
+          { kind: "folder", dx: 0 },
+          { kind: "folder", dx: gap },
+          ...bounceScraps(gap),
+        ]
+      },
+    },
+    {
       id: "breather",
       diff: 0,
       needs: [],
@@ -1093,7 +1183,7 @@ function createGame(canvas                   , opts             )       {
           arcScraps(sec(0.9), sec(0.5), 3)
         )
         const roll = rand()
-        if (!shield && at > 150 && roll < 0.35)
+        if (aids < 2 && at > 150 && roll < 0.35)
           list.push({ kind: "aid", dx: sec(1.6), y: G - 58 })
         return list
       },
@@ -1135,6 +1225,13 @@ function createGame(canvas                   , opts             )       {
     doubled = false
     gliding = false
     flipT = 0
+    aids = 0
+    meter = 0
+    folders = 0
+    boostsCaught = 0
+    bestCombo = 1
+    holeT = 0
+    acc = 0
     things = []
     nextX = 900
     y = 0
@@ -1159,7 +1256,6 @@ function createGame(canvas                   , opts             )       {
     air = false
     happy = 0
     overT = 0
-    shield = false
     safe = 0
     stumble = 0
     nearT = 0
@@ -1208,7 +1304,8 @@ function createGame(canvas                   , opts             )       {
       clouds.push(newCloud(x))
     opts.onScore(score)
     opts.onPieces(0)
-    opts.onShield(false)
+    opts.onShield(0)
+    opts.onMeter(0)
     opts.onState("run")
   }
 
@@ -1314,7 +1411,7 @@ function createGame(canvas                   , opts             )       {
     const [extra, height, kind] = [rand(), rand(), rand()]
     if (chunk.id !== "breather" && extra < 0.55) {
       const high = height < 0.4
-      const aid = !shield && at > 150 && kind < 0.1
+      const aid = aids < 2 && at > 150 && kind < 0.1
       things.push({
         kind: aid ? "aid" : "scrap",
         x: tail + rest * 0.5,
@@ -1337,7 +1434,8 @@ function createGame(canvas                   , opts             )       {
       const bx = tail + rest * 0.5
       if (parcelDue) {
         mysteryAt = t
-        parcelGap = 12 + luck() * 10
+        // a full page meter brings parcels more often
+        parcelGap = (12 + luck() * 10) * (1 - 0.06 * level())
       }
       things = things.filter(
         (o) => !((o.kind === "scrap" || o.kind === "aid") && o.x === bx)
@@ -1372,6 +1470,8 @@ function createGame(canvas                   , opts             )       {
     if (o.kind === "popup")
       return { l: ox - w, r: ox + w, t: o.y - 11, b: o.y + 11 }
     if (o.kind === "pad") return { l: ox - w, r: ox + w, t: G - 5, b: G }
+    if (o.kind === "folder")
+      return { l: ox - w, r: ox + w, t: G - FOLDER_H, b: G }
     return { l: ox - w, r: ox + w, t: o.y - 9, b: o.y + 9 }
   }
 
@@ -1393,9 +1493,58 @@ function createGame(canvas                   , opts             )       {
     combo += near ? 2 : 1
   }
 
-  function startBoost(kind       ) {
+  /** One more band-aid; the third makes Nothing fully patched. */
+  function addAid(outcome                   ) {
+    aids += 1
+    happy = Math.max(happy, 0.4)
+    if (aids >= 3) {
+      aids = 2
+      opts.onShield(aids)
+      opts.onBox("patched", 0)
+      startBoost("dash", PATCHED)
+      return
+    }
+    reveal = { kind: "shield", born: t }
+    opts.onShield(aids)
+    if (outcome) opts.onBox(outcome, 0)
+  }
+
+  /** A page caught: points, the meter, and a band-aid every 100. */
+  function gotPage() {
+    pieces += 1
+    addPoints(20)
+    happy = Math.max(happy, 0.32)
+    opts.onPieces(pieces)
+    // every fifth page is a small bonus; the run never stops for it
+    if (pieces % 5 === 0) addPoints(50)
+    const was = level()
+    meter = Math.min(METER_TOP, meter + 1)
+    if (level() !== was) opts.onMeter(level())
+    if (pieces % PAGES_AID === 0) addAid("pages")
+  }
+
+  /** A folder breaks open: its pages fly to Nothing. */
+  function breakFolder(o       ) {
+    o.knocked = t
+    o.passed = true
+    folders += 1
+    cleared(false)
+    for (let i = 0; i < FOLDER_PAGES; i++)
+      things.push({
+        kind: "scrap",
+        x: o.x - 8 + i * 4,
+        y: G - 20 - i * 3,
+        n: 1,
+        vx: 0,
+        pull: true,
+      })
+  }
+
+  function startBoost(kind       , seconds = BOOSTS[kind]) {
     boost = kind
-    boostT = BOOSTS[kind]
+    // a fuller page meter makes every boost last longer
+    boostT = seconds * strong(0.12)
+    boostsCaught += 1
     happy = Math.max(happy, 0.6)
     if (kind === "jet") {
       air = true
@@ -1429,7 +1578,7 @@ function createGame(canvas                   , opts             )       {
     const was = boost
     boost = null
     boostT = 0
-    if (was === "bubble" || was === "jet") clearAhead()
+    if (was === "bubble" || was === "jet" || was === "dash") clearAhead()
     opts.onBoost(null, 0)
   }
 
@@ -1457,7 +1606,14 @@ function createGame(canvas                   , opts             )       {
       opts.onBoost(null, 0)
     }
     opts.onState("over")
-    opts.onOver({ score, pieces, distance: Math.round(dist) })
+    opts.onOver({
+      score,
+      pieces,
+      distance: Math.round(dist),
+      bestCombo,
+      folders,
+      boosts: boostsCaught,
+    })
   }
 
   function step(dt        ) {
@@ -1475,8 +1631,11 @@ function createGame(canvas                   , opts             )       {
     // slow motion and the jet change the pace of the world, not the plan;
     // a rush runs a little faster (its patterns are spaced for it)
     const paceTo =
-      (boost === "slow" ? Math.max(SLOW_PACE, Math.min(1, 200 / speed)) : 1) *
+      (boost === "slow"
+        ? Math.max(SLOW_PACE, Math.min(1, SLOW_FLOOR / speed))
+        : 1) *
       (boost === "jet" ? JET_PACE : 1) *
+      (boost === "dash" ? DASH_PACE : 1) *
       (rushing ? RUSH_PACE : 1)
     paceK += (paceTo - paceK) * Math.min(1, dt * 5)
     const pace = speed * paceK
@@ -1497,6 +1656,7 @@ function createGame(canvas                   , opts             )       {
       }
     }
 
+    const prevY = y
     if (crouch > 0) {
       crouch -= dt
       if (crouch <= 0 && !air && pendingJump) {
@@ -1524,7 +1684,7 @@ function createGame(canvas                   , opts             )       {
         (dropping ? 3 : 1) *
         (mood === "wind" ? 0.88 : 1)
       vy -= g * dt
-      if (gliding) vy = Math.max(vy, -SCARF_FALL)
+      if (gliding) vy = Math.max(vy, -SCARF_FALL / strong(0.1))
       y += vy * dt
       if (y <= 0) {
         y = 0
@@ -1617,16 +1777,11 @@ function createGame(canvas                   , opts             )       {
       rushing = rushNow
       opts.onRush(rushing)
     }
-    // gold: a free band-aid every 1000 points along the track
+    // gold: a free band-aid every 1000 points along the track (never the
+    // third, so gold alone does not keep Nothing patched)
     if (gear >= opts.gearAt.length && freeAidAt > 0 && along >= freeAidAt) {
       freeAidAt = nextFreeAid()
-      if (!shield) {
-        shield = true
-        happy = Math.max(happy, 0.4)
-        reveal = { kind: "shield", born: t }
-        opts.onShield(true)
-        opts.onBox("shield", 0)
-      }
+      if (aids < 2) addAid("shield")
     }
     // raining scraps: bonus pieces fall ahead of Nothing (in the rain mood,
     // a rush and while the strong magnet pulls)
@@ -1671,7 +1826,8 @@ function createGame(canvas                   , opts             )       {
         const reach =
           boost === "magnet"
             ? sx > FX - 20 && sx < W
-            : gear >= MAGNET && Math.hypot(sx - cx, o.y - cy) < MAGNET_R
+            : gear >= MAGNET &&
+              Math.hypot(sx - cx, o.y - cy) < MAGNET_R * strong(0.15)
         if (!reach) continue
         o.pull = true
         o.vy = undefined
@@ -1693,8 +1849,9 @@ function createGame(canvas                   , opts             )       {
         !(o.knocked && o.knocked < t - 0.5)
     )
     const f = friendBox()
-    // a bubble or a jet goes through everything
-    const shielded = boost === "bubble" || boost === "jet"
+    // a bubble, a jet or a shortcut goes through everything
+    const shielded = boost === "bubble" || boost === "jet" || boost === "dash"
+    let overHole = false
     for (const o of things) {
       if (o.taken || o.knocked) continue
       const b = box(o)
@@ -1705,17 +1862,15 @@ function createGame(canvas                   , opts             )       {
           o.passed = true
           cleared(false)
         }
+        // both feet over the hole: a short grace to jump, then the fall
         if (
           !air &&
           !shielded &&
           state === "run" &&
           FX - 5 > b.l &&
           FX + 5 < b.r
-        ) {
-          fell = true
-          end()
-          return
-        }
+        )
+          overHole = true
         continue
       }
       // the redirect pad: run onto it for a long glide
@@ -1748,20 +1903,33 @@ function createGame(canvas                   , opts             )       {
       }
       if ((o.kind === "tile" || o.kind === "tile2") && overlapX)
         o.near = Math.min(o.near ?? 99, b.t - f.b)
+      // a folder: landing on top breaks it open and bounces Nothing up
+      if (
+        o.kind === "folder" &&
+        overlapX &&
+        air &&
+        vy <= 0 &&
+        prevY >= FOLDER_H - 4 &&
+        y <= FOLDER_H + 2 &&
+        state === "run"
+      ) {
+        breakFolder(o)
+        y = FOLDER_H
+        vy = holding ? BOUNCE * 1.25 : BOUNCE
+        doubled = false
+        dropping = false
+        happy = Math.max(happy, 0.5)
+        puff(FX - 10, G - FOLDER_H, 2, -12)
+        puff(FX + 10, G - FOLDER_H, 2, 12)
+        continue
+      }
       if (!(overlapX && f.t < b.b && f.b > b.t)) continue
       if (o.kind === "scrap") {
         o.taken = t
-        pieces += 1
-        addPoints(20)
-        happy = 0.32
-        opts.onPieces(pieces)
-        // every fifth scrap is a small bonus; the run never stops for it
-        if (pieces % 5 === 0) addPoints(50)
+        gotPage()
       } else if (o.kind === "aid") {
         o.taken = t
-        shield = true
-        happy = 0.32
-        opts.onShield(true)
+        addAid(null)
       } else if (o.kind === "gearbox" || o.kind === "mystery") {
         o.taken = t
         happy = Math.max(happy, 0.5)
@@ -1771,15 +1939,13 @@ function createGame(canvas                   , opts             )       {
           gainGear()
           reveal = { kind: "gear", born: t }
         } else if (roll < 0.72) {
-          // the same roll picks which boost (another one than now running)
-          const options = BOOST_KINDS.filter((kind) => kind !== boost)
-          const pick = Math.floor(((roll - 0.22) / 0.5) * options.length)
-          startBoost(options[pick] ?? "bubble")
-        } else if (roll < 0.84 && !shield) {
-          shield = true
-          opts.onShield(true)
-          reveal = { kind: "shield", born: t }
-          opts.onBox("shield", 0)
+          // the same roll picks which boost (a running one is not repeated)
+          const pick = Math.floor(((roll - 0.22) / 0.5) * BOOST_KINDS.length)
+          const kind = BOOST_KINDS[pick] ?? "bubble"
+          const other = BOOST_KINDS[(pick + 1) % BOOST_KINDS.length] ?? "bubble"
+          startBoost(kind === boost ? other : kind)
+        } else if (roll < 0.84) {
+          addAid("shield")
         } else if (roll < 0.94) {
           const worth = 100 * multiplier
           addPoints(100)
@@ -1799,28 +1965,44 @@ function createGame(canvas                   , opts             )       {
           opts.onBox("scraps", 0)
         }
       } else if (state === "run" && shielded) {
-        // knocked aside, and it still counts
-        o.knocked = t
-        o.passed = true
-        cleared(false)
+        // knocked aside (a folder breaks open), and it still counts
+        if (o.kind === "folder") breakFolder(o)
+        else {
+          o.knocked = t
+          o.passed = true
+          cleared(false)
+          if (boost === "dash") addPoints(10)
+        }
       } else if (state === "run" && safe <= 0) {
-        if (shield) {
-          // the band-aid takes the bump: the block is knocked aside, and the
-          // combo starts again
-          shield = false
+        if (aids > 0) {
+          // a band-aid takes the bump: the block is knocked aside, and the
+          // combo and a level of the page meter are spent
+          aids -= 1
           o.knocked = t
           safe = 0.8
           stumble = 0.35
           combo = 0
-          opts.onShield(false)
+          meter = Math.max(0, meter - METER_STEP)
+          opts.onShield(aids)
+          opts.onMeter(level())
           continue
         }
         end()
         return
       }
     }
+    // the hole: a moment to jump (or a jump already on its way), then down
+    if (overHole && !(pendingJump && crouch > 0)) {
+      holeT += dt
+      if (holeT > COYOTE) {
+        fell = true
+        end()
+        return
+      }
+    } else if (!overHole) holeT = 0
     // points for the way run, then the multiplier for what comes next
     points += ((pace * dt) / 17) * multiplier
+    bestCombo = Math.max(bestCombo, comboK())
     const k = multiplierNow()
     if (k !== multiplier) {
       multiplier = k
@@ -2033,6 +2215,9 @@ function createGame(canvas                   , opts             )       {
     }
     // the fresh one sits on the cheek, clear of the eye
     if (p.cheekBand) strip(60.2, 41.4, 7.4, -28, ink)
+    // band-aids held: one on the body, the second at the back of the head
+    if (p.side && (p.aids ?? 0) >= 1) strip(55.4, 42.8, 7, 24, ink)
+    if (p.side && (p.aids ?? 0) >= 2) strip(58.6, 27.6, 6.6, -32, ink)
     // sunglasses (knocked off by a bump), then headphones
     if (p.gear >= 2 && p.eye !== "shut") {
       c.fillStyle = ink
@@ -2244,8 +2429,9 @@ function createGame(canvas                   , opts             )       {
   function pose()       {
     const p = ridePose()
     // on the skateboard Nothing stands on the deck, a little higher
-    if (gear >= SKATE && p.side) return { ...p, g: p.g - 8 }
-    return p
+    const lean = boost === "dash" && state === "run" ? -7 : 0
+    if (gear >= SKATE && p.side) return { ...p, g: p.g - 8, rot: p.rot + lean }
+    return { ...p, rot: p.rot + lean }
   }
 
   function ridePose()       {
@@ -2257,6 +2443,7 @@ function createGame(canvas                   , opts             )       {
           o.kind === "link" ||
           o.kind === "spinner" ||
           o.kind === "popup" ||
+          o.kind === "folder" ||
           o.kind === "hole") &&
         !o.knocked &&
         o.x - dist > FX - 4
@@ -2281,6 +2468,7 @@ function createGame(canvas                   , opts             )       {
       tuft: 12 + tuftA,
       cheekBand: false,
       gear,
+      aids,
     }
     if (state === "over") {
       const dazed = overT < 0.7
@@ -2759,9 +2947,36 @@ function createGame(canvas                   , opts             )       {
   function markTop(o       ) {
     if (o.kind === "hole" || o.kind === "chasm" || o.kind === "pad")
       return G - 22
+    if (o.kind === "folder") return G - 30
     if (o.kind === "link" || o.kind === "popup")
       return o.kind === "popup" ? G - 34 : o.y - 20
     return o.kind === "tile2" ? G - 54 : G - 32
+  }
+
+  /** A folder lying on the track, a page peeking out; centred on x. */
+  function folder(x        , ink        ) {
+    scrap(x + 4, G - FOLDER_H - 1, ink, 0.62, 1, 10)
+    c.save()
+    c.translate(x, G)
+    c.lineJoin = "round"
+    c.strokeStyle = ink
+    c.lineWidth = 1.4
+    c.fillStyle = MANILA
+    c.beginPath()
+    c.roundRect(-11, -FOLDER_H - 2.5, 9, 5, 1.6)
+    c.fill()
+    c.stroke()
+    c.beginPath()
+    c.roundRect(-11, -FOLDER_H, 22, FOLDER_H, 2.6)
+    c.fill()
+    c.stroke()
+    c.globalAlpha = 0.5
+    c.lineWidth = 1
+    c.beginPath()
+    c.moveTo(-11, -FOLDER_H + 4.5)
+    c.lineTo(11, -FOLDER_H + 4.5)
+    c.stroke()
+    c.restore()
   }
 
   /** A small picture of a boost, centred on (0, 0). */
@@ -2818,6 +3033,12 @@ function createGame(canvas                   , opts             )       {
         "800 11px ui-monospace, Menlo, Consolas, monospace",
         ORANGE
       )
+    } else if (kind === "dash") {
+      // the shortcut: two arrows forward
+      const arrows = new Path2D("M-7.5 -5.5L-0.5 0L-7.5 5.5ZM0 -5.5L7 0L0 5.5Z")
+      c.fillStyle = ORANGE
+      c.fill(arrows)
+      c.stroke(arrows)
     } else {
       // the jet: a paper plane
       const plane = new Path2D("M-7 1L7 -5L1.5 6L-0.5 2Z")
@@ -3070,6 +3291,7 @@ function createGame(canvas                   , opts             )       {
         if (o.kind === "link") link(x, o.y, ink)
         else if (o.kind === "spinner") spinner(x, ink, fill)
         else if (o.kind === "popup") popup(x, o.y, ink, fill)
+        else if (o.kind === "folder") folder(x, ink)
         else
           for (let i = 0; i < o.n; i++)
             tile(
@@ -3086,6 +3308,7 @@ function createGame(canvas                   , opts             )       {
       else if (o.kind === "link") link(x, o.y, ink)
       else if (o.kind === "spinner") spinner(x, ink, fill)
       else if (o.kind === "pad") pad(x, ink)
+      else if (o.kind === "folder") folder(x, ink)
       else if (o.kind === "popup") {
         // its shadow shows where it will land
         if (o.ty !== undefined && o.y < o.ty) {
@@ -3252,6 +3475,32 @@ function createGame(canvas                   , opts             )       {
       }
       board(p.x, p.g + 4.4, ink, fill, accent, slow ? 0 : -dist / 6)
     }
+    if (boost === "dash" && state === "run" && !slow) {
+      for (const [i, a] of [
+        [2, 0.12],
+        [1, 0.24],
+      ]         ) {
+        c.globalAlpha = a
+        friend({ ...p, x: p.x - 15 * i }, ink, fill)
+      }
+      c.globalAlpha = 1
+      c.strokeStyle = ORANGE
+      c.lineCap = "round"
+      c.lineWidth = 1.8
+      c.globalAlpha = 0.7
+      c.beginPath()
+      for (const [dy, len] of [
+        [-30, 22],
+        [-18, 34],
+        [-6, 18],
+      ]         ) {
+        const wob = Math.sin(t * 40 + dy) * 4
+        c.moveTo(FX - 40, p.g + dy)
+        c.lineTo(FX - 40 - len - wob, p.g + dy)
+      }
+      c.stroke()
+      c.globalAlpha = 1
+    }
     if (safe > 0 && !slow)
       c.globalAlpha = 0.55 + 0.45 * Math.abs(Math.sin(t * 18))
     friend(p, ink, fill)
@@ -3371,9 +3620,14 @@ function createGame(canvas                   , opts             )       {
   }
 
   function frame(now        ) {
-    const dt = Math.min(0.05, (now - (last || now)) / 1000)
+    // fixed steps: the same jumps and the same path at 60, 90 or 120 Hz
+    acc += Math.min(0.1, (now - (last || now)) / 1000)
     last = now
-    step(dt)
+    for (let n = 0; acc >= STEP && n < 12; n++) {
+      step(STEP)
+      acc -= STEP
+    }
+    if (acc > STEP) acc = 0
     draw()
     raf = requestAnimationFrame(frame)
   }
@@ -3401,7 +3655,7 @@ function createGame(canvas                   , opts             )       {
         // close to it the press waits for the landing as before)
         if (gear >= SNEAKERS && !doubled && !glide && y > 14) {
           doubled = true
-          vy = DOUBLE
+          vy = DOUBLE + 14 * level()
           dropping = false
           flipT = slow ? 0 : 0.42
           puff(FX - 8, G - y + 2, 2, -14)
@@ -3454,7 +3708,11 @@ function createGame(canvas                   , opts             )       {
       speed,
       pace: speed * paceK,
       night: nightAmount(),
-      shield,
+      shield: shield(),
+      aids,
+      meter,
+      meterLevel: level(),
+      folders,
       ducking,
       gear,
       skating: gear >= SKATE,
@@ -3511,13 +3769,17 @@ const T={
   label:'بازی: به نوتینگ کمک کنید صفحهٔ گم‌شده را پیدا کند',pause:'توقف',resume:'ادامه',paused:'متوقف شد',again:'دوباره',best:'بهترین',pieces:'تکه‌های صفحه',shield:'چسب زخم: برخورد بعدی بخشیده می‌شود',
   record:'رکورد تازه!',over:s=>`اوه! ${s} امتیاز`,toRecord:p=>`${p} تا رکورد`,stopHint:'<kbd>↓</kbd> خم شدن · <kbd>Esc</kbd> توقف',stopHintTouch:'لمس = پرش · کشیدن به پایین = خم',tile:'۴۰۴',
   gear:['هدفون: آهن‌ربای تکه‌ها!','عینک: جلوتر را می‌بینی!','کفش: پرش دوم در هوا!','ضرب!','شال‌گردن: نگه دار و سُر بخور!','اسکیت: امتیاز ×۲!','طلایی: چسب زخم هر ۱۰۰۰!','رنگ تازه!'],
-  boosts:{bubble:'حباب!',magnet:'آهن‌ربای قوی!',slow:'آهسته!',triple:'امتیاز ×۳!',jet:'جت!'},rush:'هجوم! امتیاز ×۲',breather:'نفس تازه کن',multiplier:m=>`ضریب امتیاز: ×${m}`,box:{shield:'چسب زخم!',points:p=>`+${p}`,scraps:'باران تکه!'},zones:['منطقهٔ تازه: بارگذاری','منطقهٔ تازه: پنجره‌های مزاحم','منطقهٔ تازه: تغییر مسیر'],
+  boosts:{bubble:'حباب!',magnet:'آهن‌ربای قوی!',slow:'آهسته!',triple:'امتیاز ×۳!',jet:'جت!',dash:'میان‌بر!'},
+  meterUp:l=>`صفحه‌ها: قدرت‌ها قوی‌تر شد (سطح ${l})`,meter:l=>`شمارندهٔ صفحه: سطح ${l} از ۵`,shieldCount:c=>`${c} چسب زخم: هر کدام یک برخورد را می‌بخشد`,
+  recap:(p,c,f)=>`${p} صفحه · ${f} پوشه · بهترین کمبو ${c} برابر`,rush:'هجوم! امتیاز ×۲',breather:'نفس تازه کن',multiplier:m=>`ضریب امتیاز: ×${m}`,box:{shield:'چسب زخم!',points:p=>`+${p}`,scraps:'باران تکه!',pages:'۱۰۰ صفحه: چسب زخم!',patched:'سه چسب زخم: هیچ‌چیز جلودارت نیست!'},zones:['منطقهٔ تازه: بارگذاری','منطقهٔ تازه: پنجره‌های مزاحم','منطقهٔ تازه: تغییر مسیر'],
   moodToast:m=>`حال‌وهوا: ${m}`,moods:{wind:'باد',fog:'مه',rain:'باران تکه',night:'شب بلند'}},
  en:{title:'Page not found',desc:'This page does not exist or has been moved.',home:'Home',play:'Play',hint:'Press <kbd>Space</kbd> or tap Nothing to play',hintTouch:'Tap Nothing to play',
   label:'Game: help Nothing find the lost page',pause:'Pause',resume:'Resume',paused:'Paused',again:'Again',best:'Best',pieces:'Page pieces',shield:'Band-aid: the next bump is forgiven',
   record:'New record!',over:s=>`Oops! ${s} points`,toRecord:p=>`${p} to your record`,stopHint:'<kbd>↓</kbd> to duck · <kbd>Esc</kbd> to pause',stopHintTouch:'Tap = jump · swipe down = duck',tile:'404',
   gear:['Headphones: scrap magnet!','Sunglasses: see further ahead!','Sneakers: double jump!','Beat!','Scarf: hold to glide!','Skateboard: points ×2!','Gold: a band-aid every 1,000!','New colour!'],
-  boosts:{bubble:'Bubble!',magnet:'Super magnet!',slow:'Slow motion!',triple:'Points ×3!',jet:'Jet!'},rush:'Rush! Points ×2',breather:'Catch your breath',multiplier:m=>`Points multiplier: ×${m}`,box:{shield:'Band-aid!',points:p=>`+${p}`,scraps:'Scrap shower!'},zones:['New zone: Loading','New zone: Pop-ups','New zone: Redirects'],
+  boosts:{bubble:'Bubble!',magnet:'Super magnet!',slow:'Slow motion!',triple:'Points ×3!',jet:'Jet!',dash:'Shortcut!'},
+  meterUp:l=>`Pages: powers stronger (level ${l})`,meter:l=>`Page meter: level ${l} of 5`,shieldCount:c=>`${c} band-aids: each forgives one bump`,
+  recap:(p,c,f)=>`${p} pages · best combo ×${c} · ${f} folders`,rush:'Rush! Points ×2',breather:'Catch your breath',multiplier:m=>`Points multiplier: ×${m}`,box:{shield:'Band-aid!',points:p=>`+${p}`,scraps:'Scrap shower!',pages:'100 pages: a band-aid!',patched:'Three band-aids: unstoppable!'},zones:['New zone: Loading','New zone: Pop-ups','New zone: Redirects'],
   moodToast:m=>`Mood: ${m}`,moods:{wind:'Wind',fog:'Fog',rain:'Scrap rain',night:'Long night'}}};
 const $=id=>document.getElementById(id),root=document.documentElement,q=new URLSearchParams(location.search);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)'),coarse=matchMedia('(pointer: coarse)');
@@ -3543,19 +3805,26 @@ const BOOST_ICON={
  magnet:'<svg viewBox="-8 -8 16 16" aria-hidden="true"><path d="M-4.5-5.5V0A4.5 4.5 0 0 0 4.5 0V-5.5" stroke-width="4.6"/><path d="M-4.5-5.5V0A4.5 4.5 0 0 0 4.5 0V-5.5" stroke="#ff9f5e" stroke-width="2.6"/></svg>',
  slow:'<svg viewBox="-8 -8 16 16" aria-hidden="true"><path d="M-4.2-6H4.2L0 0L4.2 6H-4.2L0 0Z"/><path d="M-2.6 5.2L0 2L2.6 5.2Z" fill="#ff9f5e" stroke="none"/></svg>',
  triple:'<b class="x3">×3</b>',
- jet:'<svg viewBox="-8 -8 16 16" aria-hidden="true"><path d="M-7 1L7-5L1.5 6L-.5 2Z" fill="#ff9f5e"/><path d="M-.5 2L7-5"/></svg>'};
+ jet:'<svg viewBox="-8 -8 16 16" aria-hidden="true"><path d="M-7 1L7-5L1.5 6L-.5 2Z" fill="#ff9f5e"/><path d="M-.5 2L7-5"/></svg>',
+ dash:'<svg viewBox="-8 -8 16 16" aria-hidden="true" class="fwd"><path d="M-7.5-5.5L-.5 0L-7.5 5.5ZM0-5.5L7 0L0 5.5Z" fill="#ff9f5e"/></svg>'};
+// the page meter (five cells, 10 pages each) and the band-aids held
+let meterLevel=0,aids=0;
+const AID="<svg width=\"16\" height=\"10\" viewBox=\"-8 -5 16 10\" aria-hidden=\"true\"><g transform=\"rotate(-20)\" stroke=\"currentColor\"><rect x=\"-6.5\" y=\"-1.9\" width=\"13\" height=\"3.8\" rx=\"1.9\" fill=\"#f4d4b1\" stroke-width=\".9\"/><rect x=\"-1.6\" y=\"-1.9\" width=\"3.2\" height=\"3.8\" fill=\"#fbe8d4\" stroke-width=\".55\"/></g></svg>";
+function meterHud(){const m=$('meter');m.setAttribute('aria-label',t().meter(num(meterLevel)));m.innerHTML=Array.from({length:5},(_,i)=>`<i class="${i<meterLevel?'on':''}"></i>`).join('');}
+function aidHud(){const s=$('shield');s.hidden=!aids;s.innerHTML=AID.repeat(aids);s.setAttribute('aria-label',aids>1?t().shieldCount(num(aids)):t().shield);}
 function showBoost(kind,seconds){
  if(boostAnim){boostAnim.cancel();boostAnim=null;}boost=kind;const el=$('boost');el.hidden=!kind;if(!kind)return;
  el.setAttribute('aria-label',t().boosts[kind]);
  el.innerHTML=`<svg class="ring" viewBox="-14 -14 28 28" aria-hidden="true"><circle r="11" class="bg"/><circle r="11" class="arc" transform="rotate(-90)" stroke-dasharray="${RING}"/></svg><span class="icon">${BOOST_ICON[kind]}</span>`;
  const arc=el.querySelector('.arc');if(arc.animate)boostAnim=arc.animate([{strokeDashoffset:'0'},{strokeDashoffset:String(RING)}],{duration:seconds*1000,easing:'linear',fill:'forwards'});
 }
-function hud(){$('score').textContent=num(last.score,1);const m=$('mult');m.hidden=mult<=1;m.textContent='×'+num(mult);m.setAttribute('aria-label',t().multiplier(num(mult)));$('shield').setAttribute('aria-label',t().shield);$('best').innerHTML=best?`${t().best} <span class="num">${num(best,1)}</span>`:'';$('pieces').textContent='×'+num(last.pieces);}
+function hud(){$('score').textContent=num(last.score,1);const m=$('mult');m.hidden=mult<=1;m.textContent='×'+num(mult);m.setAttribute('aria-label',t().multiplier(num(mult)));$('shield').setAttribute('aria-label',t().shield);$('best').innerHTML=best?`${t().best} <span class="num">${num(best,1)}</span>`:'';$('pieces').textContent='×'+num(last.pieces);meterHud();aidHud();}
 NothingFriendBox.mount($('friend'),{variant:'notFound'});
 // short messages wait their turn, so one never hides another
 const toastQ=[];let toastOn=false;
 function nextToast(){const m=toastQ.shift();toastOn=!!m;$('toastSlot').innerHTML=m?`<div class="toast"><b>${m}</b></div>`:'';if(m)toastT=setTimeout(nextToast,1300);}
-function toast(title){toastQ.push(title);if(!toastOn)nextToast();}
+// small news (minor) never pushes a zone, gear or boost out of the way
+function toast(title,minor){if(minor&&(toastOn||toastQ.length))return;toastQ.push(title);if(toastQ.length>3)toastQ.splice(0,toastQ.length-3);if(!toastOn)nextToast();}
 function start(){
  if(game)return;state='run';$('card').dataset.playing='';$('start').hidden=true;$('band').hidden=false;$('desc').hidden=true;hint();
  game=NothingFriendGame.createGame($('canvas'),{rtl:lang==='fa',reducedMotion:reduce.matches,tileLabel:t().tile,num:v=>num(v),gearAt:GEAR_AT,
@@ -3564,20 +3833,21 @@ function start(){
   // tests: ?luck=0.3 fixes what mystery parcels hold
   ...(q.get('luck')?{luck:()=>Number(q.get('luck'))}:{}),
   onScore:s=>{last.score=s;hud();const h=Math.floor(s/500);if(h<milestone)milestone=h;else if(h>milestone){milestone=h;const f=$('flash');f.classList.remove('on');void f.offsetWidth;f.classList.add('on');}},
-  onPieces:p=>{last.pieces=p;hud();},onShield:on=>{$('shield').hidden=!on;},
-  onRecord:()=>toast(t().record),onBox:(o,p)=>{const b=t().box[o];toast(typeof b==='function'?b(num(p)):b);},
+  onPieces:p=>{last.pieces=p;hud();},onShield:n=>{aids=n;aidHud();},
+  onMeter:l=>{if(l>meterLevel)toast(t().meterUp(num(l)),true);meterLevel=l;meterHud();},
+  onRecord:()=>toast(t().record),onBox:(o,p)=>{const b=t().box[o];toast(typeof b==='function'?b(num(p)):b,o==='points'||o==='scraps');},
   onBoost:(kind,seconds)=>{showBoost(kind,seconds);if(kind)toast(t().boosts[kind]);},
   onMultiplier:m=>{const up=m>mult;mult=m;hud();if(up){const el=$('mult');el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}},
   onRush:on=>toast(on?t().rush:t().breather),
   onGear:l=>toast(t().gear[Math.min(l,t().gear.length)-1]),
   onZone:(zone,mood)=>{if(mood)toast(t().moodToast(t().moods[mood]));else if(t().zones[zone-1])toast(t().zones[zone-1]);},
   onState:s=>{state=s;if(boostAnim){if(s==='run'&&boostAnim.playState==='paused')boostAnim.play();else if(s!=='run')boostAnim.pause();}if(s==='over'){clearTimeout(toastT);toastQ.length=0;toastOn=false;$('toastSlot').innerHTML='';}$('paused').hidden=s!=='paused';$('over').hidden=s!=='over';},
-  onOver:({score,distance})=>{if(score>best){best=score;bestAt=distance;try{localStorage.setItem('nothing.404.best',String(best));localStorage.setItem('nothing.404.bestAt',String(bestAt))}catch{}}
+  onOver:({score,distance,pieces,bestCombo,folders})=>{$('overRecap').textContent=t().recap(num(pieces),num(bestCombo),num(folders));if(score>best){best=score;bestAt=distance;try{localStorage.setItem('nothing.404.best',String(best));localStorage.setItem('nothing.404.bestAt',String(bestAt))}catch{}}
    const verdict=score>=best?t().record:t().toRecord(num(best-score));
    $('overTitle').textContent=t().over(num(score));$('overNote').textContent=verdict;$('live').textContent=`${t().over(num(score))}. ${verdict}`;hud();}});
  window.NothingFriendGameDemo.game=game;
 }
-function stop(){if(!game)return;game.destroy();game=null;state='rest';delete $('card').dataset.playing;$('start').hidden=false;$('band').hidden=true;$('desc').hidden=false;$('over').hidden=true;$('paused').hidden=true;$('shield').hidden=true;showBoost(null,0);milestone=0;mult=1;last={score:0,pieces:0};hint();hud();}
+function stop(){if(!game)return;game.destroy();game=null;state='rest';delete $('card').dataset.playing;$('start').hidden=false;$('band').hidden=true;$('desc').hidden=false;$('over').hidden=true;$('paused').hidden=true;aids=0;meterLevel=0;showBoost(null,0);milestone=0;mult=1;last={score:0,pieces:0};hint();hud();}
 const interactive=el=>el instanceof Element&&!!el.closest('button,a,input,textarea,select,[contenteditable]');
 const JUMP=new Set(['Space','ArrowUp','KeyW']),DOWN=new Set(['ArrowDown','KeyS']);
 addEventListener('keydown',e=>{
