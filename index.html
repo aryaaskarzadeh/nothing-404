@@ -54,8 +54,8 @@ kbd{font:11px ui-monospace,Consolas,monospace;border:1px solid var(--line);borde
 .overlay>div{pointer-events:auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:end;background:color-mix(in oklab,var(--bg) 82%,transparent);border-radius:10px;padding:6px 8px}
 .overlay.center{justify-content:center}.overlay.center>div{align-items:center;text-align:center}
 .overlay b{font-size:15px}.overlay small{color:var(--muted)}
-.toast{position:absolute;inset-inline-end:24px;top:44px;text-align:end;background:color-mix(in oklab,var(--bg) 85%,transparent);border-radius:8px;padding:2px 8px;pointer-events:none;animation:toast 1.3s ease both}
-.toast b{display:block;font-size:14px}.toast small{color:var(--muted);font-size:12px}
+.toast{position:absolute;inset-inline-end:24px;top:44px;max-width:calc(100% - 48px);text-align:end;background:color-mix(in oklab,var(--bg) 88%,transparent);border:1px solid var(--line,color-mix(in oklab,currentColor 15%,transparent));border-radius:999px;padding:2px 10px;pointer-events:none;animation:toast 1.3s ease both}
+.toast b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.toast small{color:var(--muted);font-size:12px}
 @keyframes toast{0%{opacity:0;transform:translateY(4px)}15%,80%{opacity:1;transform:none}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.toast,.boost,.mult.pop{animation:none}.card{transition:none}.score .flash{display:none}}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -70,7 +70,7 @@ kbd{font:11px ui-monospace,Consolas,monospace;border:1px solid var(--line);borde
 <main>
  <div class="logo">nothing</div>
  <section class="card" id="card">
-  <button class="friend-btn" id="start" type="button"><span class="friend" id="friend"><svg class="nf" viewBox="26 11 44 44" aria-hidden="true" focusable="false" data-variant="notFound"><path d="M36.5 46V51.1Q36.5 53 38.4 53H43.6Q45.5 53 45.5 51.1V46Z" class="nf-fill"></path><path d="M50.5 46V51.1Q50.5 53 52.4 53H57.6Q59.5 53 59.5 51.1V46Z" class="nf-fill"></path><path d="M65.5 34.1L65.482 35.245L65.427 36.19L65.335 37.068L65.207 37.903L65.043 38.703L64.843 39.472L64.607 40.215L64.336 40.932L64.029 41.623L63.689 42.29L63.314 42.931L62.905 43.547L62.464 44.138L61.99 44.703L61.484 45.241L60.947 45.752L60.379 46.235L59.781 46.691L59.153 47.117L58.497 47.515L57.812 47.882L57.1 48.22L56.359 48.527L55.591 48.802L54.795 49.046L53.969 49.259L53.114 49.439L52.225 49.587L51.298 49.702L50.322 49.784L49.272 49.834L48 49.85L46.728 49.834L45.678 49.784L44.702 49.702L43.775 49.587L42.886 49.439L42.031 49.259L41.205 49.046L40.409 48.802L39.641 48.527L38.9 48.22L38.188 47.882L37.503 47.515L36.847 47.117L36.219 46.691L35.621 46.235L35.053 45.752L34.516 45.241L34.01 44.703L33.536 44.138L33.095 43.547L32.686 42.931L32.311 42.29L31.971 41.623L31.664 40.932L31.393 40.215L31.157 39.472L30.957 38.703L30.793 37.903L30.665 37.068L30.573 36.19L30.518 35.245L30.5 34.1L30.518 32.955L30.573 32.01L30.665 31.132L30.793 30.297L30.957 29.497L31.157 28.728L31.393 27.985L31.664 27.268L31.971 26.577L32.311 25.91L32.686 25.269L33.095 24.653L33.536 24.062L34.01 23.497L34.516 22.959L35.053 22.448L35.621 21.965L36.219 21.509L36.847 21.083L37.503 20.685L38.188 20.318L38.9 19.98L39.641 19.673L40.409 19.398L41.205 19.154L42.031 18.941L42.886 18.761L43.775 18.613L44.702 18.498L45.678 18.416L46.728 18.366L48 18.35L49.272 18.366L50.322 18.416L51.298 18.498L52.225 18.613L53.114 18.761L53.969 18.941L54.795 19.154L55.591 19.398L56.359 19.673L57.1 19.98L57.812 20.318L58.497 20.685L59.153 21.083L59.781 21.509L60.379 21.965L60.947 22.448L61.484 22.959L61.99 23.497L62.464 24.062L62.905 24.653L63.314 25.269L63.689 25.91L64.029 26.577L64.336 27.268L64.607 27.985L64.843 28.728L65.043 29.497L65.207 30.297L65.335 31.132L65.427 32.01L65.482 32.955Z" class="nf-fill"></path><path d="M47.2 19.65C47 16.15 48.1 12.95 51.9 12.55" class="nf-line" stroke-width="1.9"></path><ellipse cx="38.3" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="57.7" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="48" cy="39.7" rx=".78" ry=".95" class="nf-ink"></ellipse><path class="nf-eyes" d="M40.54 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0ZM51.04 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0Z"></path><path class="nf-line nf-arcs" d=""></path><g transform="rotate(35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><g transform="rotate(-35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><circle cx="35.525" cy="41.325" r="1.35" class="nf-fill"></circle><path d="M36.35 40.4L36.321 40.981L36.234 41.483L36.09 41.945L35.89 42.37L35.638 42.756L35.337 43.1L34.988 43.398L34.597 43.646L34.166 43.843L33.697 43.985L33.189 44.071L32.6 44.1L32.011 44.071L31.503 43.985L31.034 43.843L30.603 43.646L30.212 43.398L29.863 43.1L29.562 42.756L29.31 42.37L29.11 41.945L28.966 41.483L28.879 40.981L28.85 40.4L28.879 39.819L28.966 39.317L29.11 38.855L29.31 38.43L29.562 38.044L29.863 37.7L30.212 37.402L30.603 37.154L31.034 36.957L31.503 36.815L32.011 36.729L32.6 36.7L33.189 36.729L33.697 36.815L34.166 36.957L34.597 37.154L34.988 37.402L35.337 37.7L35.638 38.044L35.89 38.43L36.09 38.855L36.234 39.317L36.321 39.819Z" class="nf-fill"></path><circle cx="60.475" cy="41.525" r="1.35" class="nf-fill"></circle><path d="M67.15 40.6L67.121 41.181L67.034 41.683L66.89 42.145L66.69 42.57L66.438 42.956L66.137 43.3L65.788 43.598L65.397 43.846L64.966 44.043L64.497 44.185L63.989 44.271L63.4 44.3L62.811 44.271L62.303 44.185L61.834 44.043L61.403 43.846L61.012 43.598L60.663 43.3L60.362 42.956L60.11 42.57L59.91 42.145L59.766 41.683L59.679 41.181L59.65 40.6L59.679 40.019L59.766 39.517L59.91 39.055L60.11 38.63L60.362 38.244L60.663 37.9L61.012 37.602L61.403 37.354L61.834 37.157L62.303 37.015L62.811 36.929L63.4 36.9L63.989 36.929L64.497 37.015L64.966 37.157L65.397 37.354L65.788 37.602L66.137 37.9L66.438 38.244L66.69 38.63L66.89 39.055L67.034 39.517L67.121 40.019Z" class="nf-fill"></path><g class="nf-q" opacity="0.459" transform="translate(0 0.31)"><path d="M62.6 16.4q0-2.5 2.4-2.5t2.4 2.3q0 1.5-1.9 2.3v1.5" class="nf-line" stroke-width="1.15"></path><circle cx="65.5" cy="22.3" r=".72" class="nf-ink"></circle></g></svg></span><span class="ground"></span></button>
+  <button class="friend-btn" id="start" type="button"><span class="friend" id="friend"><svg class="nf" viewBox="26 11 44 44" aria-hidden="true" focusable="false" data-variant="notFound"><path d="M36.5 46V51.1Q36.5 53 38.4 53H43.6Q45.5 53 45.5 51.1V46Z" class="nf-fill"></path><path d="M50.5 46V51.1Q50.5 53 52.4 53H57.6Q59.5 53 59.5 51.1V46Z" class="nf-fill"></path><path d="M65.5 34.1L65.482 35.245L65.427 36.19L65.335 37.068L65.207 37.903L65.043 38.703L64.843 39.472L64.607 40.215L64.336 40.932L64.029 41.623L63.689 42.29L63.314 42.931L62.905 43.547L62.464 44.138L61.99 44.703L61.484 45.241L60.947 45.752L60.379 46.235L59.781 46.691L59.153 47.117L58.497 47.515L57.812 47.882L57.1 48.22L56.359 48.527L55.591 48.802L54.795 49.046L53.969 49.259L53.114 49.439L52.225 49.587L51.298 49.702L50.322 49.784L49.272 49.834L48 49.85L46.728 49.834L45.678 49.784L44.702 49.702L43.775 49.587L42.886 49.439L42.031 49.259L41.205 49.046L40.409 48.802L39.641 48.527L38.9 48.22L38.188 47.882L37.503 47.515L36.847 47.117L36.219 46.691L35.621 46.235L35.053 45.752L34.516 45.241L34.01 44.703L33.536 44.138L33.095 43.547L32.686 42.931L32.311 42.29L31.971 41.623L31.664 40.932L31.393 40.215L31.157 39.472L30.957 38.703L30.793 37.903L30.665 37.068L30.573 36.19L30.518 35.245L30.5 34.1L30.518 32.955L30.573 32.01L30.665 31.132L30.793 30.297L30.957 29.497L31.157 28.728L31.393 27.985L31.664 27.268L31.971 26.577L32.311 25.91L32.686 25.269L33.095 24.653L33.536 24.062L34.01 23.497L34.516 22.959L35.053 22.448L35.621 21.965L36.219 21.509L36.847 21.083L37.503 20.685L38.188 20.318L38.9 19.98L39.641 19.673L40.409 19.398L41.205 19.154L42.031 18.941L42.886 18.761L43.775 18.613L44.702 18.498L45.678 18.416L46.728 18.366L48 18.35L49.272 18.366L50.322 18.416L51.298 18.498L52.225 18.613L53.114 18.761L53.969 18.941L54.795 19.154L55.591 19.398L56.359 19.673L57.1 19.98L57.812 20.318L58.497 20.685L59.153 21.083L59.781 21.509L60.379 21.965L60.947 22.448L61.484 22.959L61.99 23.497L62.464 24.062L62.905 24.653L63.314 25.269L63.689 25.91L64.029 26.577L64.336 27.268L64.607 27.985L64.843 28.728L65.043 29.497L65.207 30.297L65.335 31.132L65.427 32.01L65.482 32.955Z" class="nf-fill"></path><path d="M47.2 19.65C47 16.15 48.1 12.95 51.9 12.55" class="nf-line" stroke-width="1.9"></path><ellipse cx="38.3" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="57.7" cy="39.6" rx="2.3" ry="1.3" class="nf-cheek"></ellipse><ellipse cx="48" cy="39.7" rx=".78" ry=".95" class="nf-ink"></ellipse><path class="nf-eyes" d="M40.502 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0ZM51.002 34.97a0.92 0.92 0 0 1 1.84 0v1.86a0.92 0.92 0 0 1 -1.84 0Z"></path><path class="nf-line nf-arcs" d=""></path><g transform="rotate(35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><g transform="rotate(-35 41.2 24.2)"><rect x="35.95" y="22.55" width="10.5" height="3.3" rx="1.65" fill="#f4d4b1" stroke="var(--nf-ink,#2f2925)" stroke-width=".85"></rect><rect x="39.7" y="22.55" width="3" height="3.3" fill="#fbe8d4" stroke="var(--nf-ink,#2f2925)" stroke-width=".5"></rect><circle cx="37.45" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="37.45" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="23.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle><circle cx="44.95" cy="24.7" r=".22" fill="var(--nf-ink,#2f2925)" opacity=".45"></circle></g><circle cx="35.525" cy="41.325" r="1.35" class="nf-fill"></circle><path d="M36.35 40.4L36.321 40.981L36.234 41.483L36.09 41.945L35.89 42.37L35.638 42.756L35.337 43.1L34.988 43.398L34.597 43.646L34.166 43.843L33.697 43.985L33.189 44.071L32.6 44.1L32.011 44.071L31.503 43.985L31.034 43.843L30.603 43.646L30.212 43.398L29.863 43.1L29.562 42.756L29.31 42.37L29.11 41.945L28.966 41.483L28.879 40.981L28.85 40.4L28.879 39.819L28.966 39.317L29.11 38.855L29.31 38.43L29.562 38.044L29.863 37.7L30.212 37.402L30.603 37.154L31.034 36.957L31.503 36.815L32.011 36.729L32.6 36.7L33.189 36.729L33.697 36.815L34.166 36.957L34.597 37.154L34.988 37.402L35.337 37.7L35.638 38.044L35.89 38.43L36.09 38.855L36.234 39.317L36.321 39.819Z" class="nf-fill"></path><circle cx="60.475" cy="41.525" r="1.35" class="nf-fill"></circle><path d="M67.15 40.6L67.121 41.181L67.034 41.683L66.89 42.145L66.69 42.57L66.438 42.956L66.137 43.3L65.788 43.598L65.397 43.846L64.966 44.043L64.497 44.185L63.989 44.271L63.4 44.3L62.811 44.271L62.303 44.185L61.834 44.043L61.403 43.846L61.012 43.598L60.663 43.3L60.362 42.956L60.11 42.57L59.91 42.145L59.766 41.683L59.679 41.181L59.65 40.6L59.679 40.019L59.766 39.517L59.91 39.055L60.11 38.63L60.362 38.244L60.663 37.9L61.012 37.602L61.403 37.354L61.834 37.157L62.303 37.015L62.811 36.929L63.4 36.9L63.989 36.929L64.497 37.015L64.966 37.157L65.397 37.354L65.788 37.602L66.137 37.9L66.438 38.244L66.69 38.63L66.89 39.055L67.034 39.517L67.121 40.019Z" class="nf-fill"></path><g class="nf-q" opacity="0.513" transform="translate(0 0.38)"><path d="M62.6 16.4q0-2.5 2.4-2.5t2.4 2.3q0 1.5-1.9 2.3v1.5" class="nf-line" stroke-width="1.15"></path><circle cx="65.5" cy="22.3" r=".72" class="nf-ink"></circle></g></svg></span><span class="ground"></span></button>
   <div class="band" id="band" hidden role="group">
    <canvas id="canvas" aria-hidden="true"></canvas>
    <div class="hud">
@@ -248,9 +248,15 @@ globalThis.NothingFriendBox=Object.freeze({mount,svg,variants:Object.fromEntries
  * gear box that comes later, marked "+", charges it again, and so may a
  * mystery parcel. A mystery parcel may also hold a short boost: a
  * bubble, a strong magnet, slow motion, triple points, a jet or a shortcut
- * (a fast dash that knocks everything aside). The jet takes off, then the
- * player steers it: hold to climb, let go to sink, Down to dive. Whatever a
- * bubble, the jet or the shortcut goes through still slows Nothing a little.
+ * (a fast dash). The jet takes off, then the player steers it: hold to
+ * climb, let go to sink, Down to dive. Whatever a bubble, the jet or the
+ * shortcut goes through still slows Nothing a little.
+ * The shortcut is fast, not free: the track ahead is laid out for its pace,
+ * the view pulls back to see further, and among the small things it smashes
+ * for points come walls and holes marked in orange (a "!" at the edge
+ * first). Those it cannot smash: jump them for a bonus, or a hit costs a
+ * band-aid and ends the dash, and without one the run. More of them come
+ * with every tier; the dash's pace has a cap a person can still read.
  * While the jet flies, the track below stays empty and the sky brings its own
  * things: broken cables to fly over or under, pop-ups flying in (a "!" at the
  * edge first) and pages in shapes; a hit there slows Nothing and spends the
@@ -267,11 +273,27 @@ globalThis.NothingFriendBox=Object.freeze({mount,svg,variants:Object.fromEntries
  * Clearing things builds a combo (up to x5); a bump spends it. All together
  * points never count more than ten times. Every 2000
  * points a rush runs faster and harder for double points, then a breather.
+ * Flags stand where runs ended: the player's own best, and the board's top
+ * three in their medals' colours, named.
+ *
+ * The run never flattens out: every 1500 points is a new tier. Each tier runs
+ * a little faster (up to a cap a person can still read), packs the patterns
+ * tighter, keeps the breathers shorter, and opens harder patterns (slaloms,
+ * twin towers, wheel storms, rapid rows, gauntlets) that only come late. The
+ * supply of help thins with it: fewer loose band-aids, gold's band-aids
+ * further apart, parcels more often points than a band-aid. So a strong
+ * player can keep going for a long time, but never on autopilot.
+ * A power's time comes from the pages caught: a piece or a boost lasts a
+ * short while on an empty page meter and three times as long on a full one.
+ * A spent piece comes off Nothing (its slot stays dim on the shelf) until a
+ * "+" box brings it back.
+ * In the sky (the jet) a cable or a pop-up hit costs a band-aid, and without
+ * one it ends the run, like a bump on the ground.
  * Loaded on demand from the 404 page; the HUD and buttons live in the DOM.
  * Body, mittens and palette come from the mascot, so the two stay one friend.
  */
 
-const {BODY, COLORS, mitten: mittenPath, superellipse} = (() => {
+const {BODY, COLORS, mitten: mittenPath, NIGHT, superellipse} = (() => {
                                    
 
 /*
@@ -294,6 +316,23 @@ const COLORS = {
   amber: "#f5b948",
   /** tear drop */
   ice: "#dbeefa",
+  /** plan props: a mud brick, its sunlit top */
+  clay: "#e48a5c",
+  clayLight: "#f3b896",
+  /** plan props: the arch's tile */
+  lapis: "#6f86e4",
+  /** plan props: the dome's tile */
+  turquoise: "#3fbfb3",
+}         
+
+/**
+ * Body and lines by night (dark theme): a dusk body that stands off the dark
+ * page, and soft moonlit lines instead of stark white. By day they are the
+ * page's own background and foreground. `COLORS` stay the same day and night.
+ */
+const NIGHT = {
+  body: "#303541",
+  line: "#ebe4d6",
 }         
 
 /** Rounds to 3 decimals so path strings stay short. */
@@ -403,7 +442,7 @@ function eyePaths(
   return { fill, line }
 }
 
-return {BODY, COLORS, mitten, superellipse};
+return {BODY, COLORS, mitten, NIGHT, superellipse};
 })();
 /** A short power from a mystery parcel. */
                                                                             
@@ -413,6 +452,8 @@ return {BODY, COLORS, mitten, superellipse};
                            
               
                         
+                                                                           
+                                 
                                                      
                    
                                                                                   
@@ -421,6 +462,11 @@ return {BODY, COLORS, mitten, superellipse};
               
                                                                              
                        
+     
+                                                                           
+                                                   
+     
+                                                                       
                                                                                    
                
                                                                        
@@ -476,6 +522,10 @@ return {BODY, COLORS, mitten, superellipse};
                      
                    
                   
+                                 
+                
+                                       
+                   
             
  
 
@@ -530,8 +580,10 @@ return {BODY, COLORS, mitten, superellipse};
                      
                                                                               
                 
-                                                               
+                                                                               
                 
+                                                                          
+                            
                                                                       
                       
                  
@@ -547,6 +599,8 @@ return {BODY, COLORS, mitten, superellipse};
                      
                                                  
                      
+                                            
+                
                                      
                                                
                  
@@ -619,6 +673,10 @@ return {BODY, COLORS, mitten, superellipse};
              
                                                             
                 
+                                                                           
+                
+                                                            
+                
                                                                          
              
                 
@@ -651,6 +709,12 @@ return {BODY, COLORS, mitten, superellipse};
            
           
             
+                                                                   
+            
+            
+           
+           
+              
              
             
             
@@ -696,28 +760,39 @@ const GILT = 7
  * gold have a number of uses. A spent piece is still worn; a gear box that
  * comes later charges it again.
  */
-const POWERS         
-         
-   
-                 
-                 
-                                                 
-   
-  = {
+              
+               
+               
+                                               
+ 
+const POWERS                        = {
   [MAGNET]: { time: 20 },
   [GLASSES]: { time: 20 },
-  [SNEAKERS]: { uses: 6, more: 1 },
+  [SNEAKERS]: { uses: 6, more: 0.6 },
   [BEAT]: { time: 20 },
-  [SCARF]: { uses: 4, more: 1 },
+  [SCARF]: { uses: 4, more: 0.6 },
   [SKATE]: { time: 20 },
-  [GILT]: { uses: 3, more: 0.5 },
+  [GILT]: { uses: 3, more: 0.4 },
 }
+const TIMED = Object.keys(POWERS)
+  .map(Number)
+  .filter((level) => POWERS[level]?.time)
 /**
- * Pages make every power better, Crash-style: each level of the page meter
- * adds this share to a timed piece's time and a boost's length (twice as long
- * at the top), and the effects grow too (see `strong`).
+ * A timed piece or a boost lasts its listed time times this: `PAGE_TIME_MIN`
+ * on an empty page meter, three times that on a full one. Fewer pages, less
+ * time.
  */
-const POWER_PER = 0.2
+const PAGE_TIME_MIN = 0.5
+const PAGE_TIME_MAX = 1.5
+/**
+ * Tiers: every this many points along the track the run gets harder, up to
+ * `TIER_TOP` (after that the director's plan alone keeps climbing). Each
+ * tier adds `TIER_SPEED` to the top speed, never past `SPEED_CAP`.
+ */
+const TIER = 1500
+const TIER_TOP = 8
+const TIER_SPEED = 19
+const SPEED_CAP = 545
 /** What the gear is made of: finer with a fuller page meter. */
                  
                                       
@@ -732,9 +807,6 @@ const MATERIALS                       = [
   [4, { name: "gold", base: "#e9b949", shine: "#fff1b8", glints: 2 }],
   [2, { name: "silver", base: "#c4ccd6", shine: "#ffffff", glints: 1 }],
 ]
-const TIMED = Object.keys(POWERS)
-  .map(Number)
-  .filter((level) => POWERS[level]?.time)
 /** After a piece is spent, a box to charge it comes this many points later. */
 const RECHARGE_GAP = 400
 /** How far the headphones pull scraps in. */
@@ -753,8 +825,20 @@ const BOOSTS                        = {
   jet: 7,
   dash: 5,
 }
-/** The shortcut: the world rushes by and everything hit is knocked aside. */
+/** The shortcut: the world rushes by and the small things hit are knocked aside. */
 const DASH_PACE = 1.6
+/**
+ * The shortcut's pace never passes this (world units a second), so a wall
+ * stays readable at the top tier; the view pulls back to `DASH_ZOOM`.
+ */
+const DASH_TOP = 720
+const DASH_ZOOM = 0.8
+/** Each small thing smashed on the shortcut slows it this much (it flows). */
+const DASH_HIT = 0.06
+/** A wall or a hole jumped on the shortcut is worth this (times the multiplier). */
+const DASH_CLEAR = 25
+/** The shortcut's first stretch (seconds) only brings small things to smash. */
+const DASH_LEAD = 0.5
 /** Fully patched (a third band-aid): a longer shortcut. */
 const PATCHED = 6
 /** The page meter: 20 pages a level, five levels; a bump costs a level. */
@@ -898,6 +982,12 @@ const SKILLS                            = [
   ["popup", 2 * ZONE, 2 * ZONE],
   ["hole", 3 * ZONE, 3 * ZONE],
   ["folder", 250, 450],
+  // the late patterns, one every tier or two
+  ["slalom", 3 * TIER, 3 * TIER + 500],
+  ["towers", 4 * TIER, 4 * TIER + 500],
+  ["storm", 5 * TIER, 5 * TIER + 600],
+  ["rapid", 6 * TIER, 6 * TIER + 600],
+  ["gauntlet", 7 * TIER, 7 * TIER + 800],
 ]
 const LOW_Y = G - 26
 const MID_Y = G - 40
@@ -1054,6 +1144,10 @@ function createGame(canvas                   , opts             )       {
   let multiplier = 1
   let boost               = null
   let boostT = 0
+  /** where on the track the shortcut's walls and holes may start */
+  let dashHardX = 0
+  /** walls and holes laid out on this shortcut (each brings at least one) */
+  let dashWalls = 0
   let rushing = false
   let lineT = 0
   let freeAidAt = 0
@@ -1089,6 +1183,10 @@ function createGame(canvas                   , opts             )       {
   let gear = 0
   /** what is left of each piece's power (seconds or uses), by gear level */
   let charge           = []
+  /** what each piece got when it was last charged (the shelf's full bar) */
+  let full           = []
+  /** every 1500 points along the track */
+  let tier = 0
   /** spent pieces, the first spent first in line for a box */
   let spent           = []
   /** points along the track when the next box to charge a piece may come */
@@ -1170,6 +1268,27 @@ function createGame(canvas                   , opts             )       {
     pts % RUSH_EVERY < RUSH_LEN + BREATH_LEN
   const shield = () => aids > 0
   const level = () => Math.floor(meter / METER_STEP)
+  /** in the air on the jet */
+  const flying = () => boost === "jet"
+  /** the shortcut's pace over a normal run (a rush on top), under its cap */
+  const dashK = () =>
+    Math.min(
+      DASH_PACE * (rushing ? RUSH_PACE : 1),
+      Math.max(1, DASH_TOP / Math.max(1, speed))
+    )
+  /**
+   * Where on the track Nothing is when the shortcut ends (a moment early):
+   * up to there the track is laid out for its pace.
+   */
+  const dashEnd = () =>
+    boost === "dash"
+      ? dist + FX + speed * dashK() * Math.max(0, boostT - 0.25)
+      : -1
+  /** how far into the tiers the run is, 0..1 (full at `TIER_TOP`) */
+  const tierK = () => Math.min(1, tier / TIER_TOP)
+  /** how long a timed power lasts now: from the pages caught (0..100) */
+  const pageTime = () =>
+    PAGE_TIME_MIN + (PAGE_TIME_MAX - PAGE_TIME_MIN) * (meter / METER_TOP)
   /** the gear's material at this page meter level (null = its own colours) */
   const material = () =>
     MATERIALS.find(([from]) => level() >= from)?.[1] ?? null
@@ -1181,14 +1300,19 @@ function createGame(canvas                   , opts             )       {
   /** this piece is worn and its power still has time or uses left */
   const on = (level        ) => gear >= level && (charge[level] ?? 0) > 0
   /**
-   * A full charge: the fuller the page meter, the longer a timed piece runs
-   * (twice as long at the top) and the more uses the others get.
+   * A full charge, from the pages caught: a timed piece runs a short while on
+   * an empty page meter and three times as long on a full one; the pieces
+   * with uses get half of them on an empty meter, all on a full one, and a
+   * few more per page level.
    */
   const fullCharge = (piece        ) => {
     const power = POWERS[piece]
     if (!power) return 0
-    if (power.time) return power.time * strong(POWER_PER)
-    return (power.uses ?? 0) + Math.floor((power.more ?? 0) * level())
+    if (power.time) return power.time * pageTime()
+    return (
+      Math.max(1, Math.round((power.uses ?? 0) * (0.5 + meter / 200))) +
+      Math.floor((power.more ?? 0) * level())
+    )
   }
   const multiplierNow = () =>
     Math.min(
@@ -1200,8 +1324,12 @@ function createGame(canvas                   , opts             )       {
     )
   /** points along the track: zones, nights, rushes and gold's band-aids */
   const run = () => Math.floor(dist / 17)
-  /** gold's band-aids come sooner with a fuller page meter */
-  const freeAidEvery = () => Math.max(250, FREE_AID - 50 * level())
+  /**
+   * Gold's band-aids come sooner with a fuller page meter, and further apart
+   * as the tiers climb (up to twice as far).
+   */
+  const freeAidEvery = () =>
+    Math.round(Math.max(250, FREE_AID - 50 * level()) * (1 + tierK()))
   const nextFreeAid = () =>
     (Math.floor(run() / freeAidEvery()) + 1) * freeAidEvery()
   const isObstacle = (o       ) =>
@@ -1426,6 +1554,76 @@ function createGame(canvas                   , opts             )       {
         ]
       },
     },
+    // The late patterns: each one asks for a rhythm, not just a reflex, and
+    // every gap still comes from the jump physics at the current speed.
+    {
+      id: "slalom",
+      diff: 0.8,
+      needs: ["slalom", "low"],
+      // jump, land, jump the link, land, jump again
+      build: () => [
+        { kind: "tile", dx: 0 },
+        { kind: "link", dx: sec(0.72) + 40, y: LOW_Y },
+        { kind: "tile", dx: 2 * (sec(0.72) + 40) },
+      ],
+    },
+    {
+      id: "towers",
+      diff: 0.85,
+      needs: ["towers", "tall"],
+      build: () => [
+        { kind: "tile2", dx: 0 },
+        { kind: "tile2", dx: sec(0.66) + 46 },
+        ...arcScraps(sec(0.66) + 46 + sec(0.3), sec(0.4), 3, 30),
+      ],
+    },
+    {
+      id: "storm",
+      diff: 0.85,
+      needs: ["storm", "spinner"],
+      // two wheels rolling in at different speeds, then a window falls
+      build: () => [
+        { kind: "spinner", dx: 0, vx: 55 },
+        { kind: "spinner", dx: sec(0.9) + 150, vx: 95 },
+        { kind: "popup", dx: sec(1.9) + 300 },
+      ],
+    },
+    {
+      id: "rapid",
+      diff: 0.9,
+      needs: ["rapid", "pair"],
+      // four blocks in a row at the hopscotch's rhythm
+      build: () =>
+        [0, 1, 2, 3].map((i)       => ({
+          kind: "tile",
+          dx: i * (sec(0.64) + 28),
+        })),
+    },
+    {
+      id: "gauntlet",
+      diff: 0.95,
+      needs: ["gauntlet", "hole", "mid"],
+      // a hole, a tall block, then duck under a link
+      build: () => {
+        const w = Math.min(34, speed * 0.16)
+        const step = sec(0.74) + 50
+        return [
+          { kind: "hole", dx: 0, w },
+          { kind: "tile2", dx: w + step },
+          { kind: "link", dx: w + 2 * step, y: MID_Y },
+        ]
+      },
+    },
+    {
+      id: "wind-link",
+      diff: 0.75,
+      needs: ["storm", "drift"],
+      // a fast link closing in, low or high, with a block behind it
+      build: () => [
+        { kind: "link", dx: 0, y: rand() < 0.5 ? HIGH_Y : LOW_Y, vx: 70 },
+        { kind: "tile", dx: sec(0.95) + 120 },
+      ],
+    },
     {
       id: "breather",
       diff: 0,
@@ -1435,7 +1633,8 @@ function createGame(canvas                   , opts             )       {
           arcScraps(sec(0.9), sec(0.5), 3)
         )
         const roll = rand()
-        if (aids < 2 && at > 150 && roll < 0.35)
+        // loose band-aids get rarer as the tiers climb
+        if (aids < 2 && at > 150 && roll < 0.35 * (1 - 0.6 * tierK()))
           list.push({ kind: "aid", dx: sec(1.6), y: G - 58 })
         return list
       },
@@ -1471,6 +1670,8 @@ function createGame(canvas                   , opts             )       {
     if (boost) opts.onBoost(null, 0)
     boost = null
     boostT = 0
+    dashHardX = 0
+    dashWalls = 0
     rushing = false
     lineT = 0
     freeAidAt = 0
@@ -1505,6 +1706,8 @@ function createGame(canvas                   , opts             )       {
     ducking = false
     gear = 0
     charge = []
+    full = []
+    tier = 0
     spent = []
     rechargeAt = 0
     glideUsed = false
@@ -1550,11 +1753,14 @@ function createGame(canvas                   , opts             )       {
       nextX = dist + 520
       at = start
       zone = Math.floor(start / ZONE)
+      tier = Math.floor(start / TIER)
       if (zone >= 4) mood = pickMood()
       // the gear such a run would have caught on the way, freshly charged
       while (start >= gearScore(gear)) gear += 1
-      for (let level = 1; level <= gear; level++)
+      for (let level = 1; level <= gear; level++) {
         charge[level] = fullCharge(level)
+        full[level] = charge[level] ?? 0
+      }
       accent = accentFor(gear)
       for (const [skill] of SKILLS) if (has(skill)) shown.add(skill)
       rushing = rushAt(start)
@@ -1589,24 +1795,41 @@ function createGame(canvas                   , opts             )       {
   }
 
   // ---- the director ----
-  /** The plan: difficulty rises with the score and never quite stops. */
-  const plan = () => 0.12 + 0.75 * (1 - Math.exp(-at / 2300))
+  /**
+   * The plan: difficulty rises with the score and never stops. The curve
+   * eases toward 0.9 over the first few thousand points; after that the
+   * tiers lift it the rest of the way, and the hard patterns take over.
+   */
+  const plan = () =>
+    Math.min(
+      1,
+      0.12 + 0.78 * (1 - Math.exp(-at / 2300)) + 0.12 * Math.min(1, at / 12000)
+    )
 
   function nextWave() {
-    // build-up -> peak -> breather -> build-up ..., each a random length
+    // build-up -> peak -> breather -> build-up ..., each a random length;
+    // the build-ups and breathers get shorter as the tiers climb, so the
+    // peaks come closer together
     wave = wave === "build" ? "peak" : wave === "peak" ? "breath" : "build"
+    const k = tierK()
     waveSize =
       wave === "build"
-        ? 5 + Math.floor(rand() * 5)
+        ? 5 - Math.round(2 * k) + Math.floor(rand() * (5 - 2 * k))
         : wave === "peak"
-          ? 3 + Math.floor(rand() * 4)
-          : 2 + Math.floor(rand() * 2)
-    waveLeft = waveSize
+          ? 3 + Math.floor(rand() * 4) + Math.round(2 * k)
+          : 2 - Math.round(k) + Math.floor(rand() * 2)
+    waveLeft = Math.max(1, waveSize)
   }
 
   function target() {
     const u = clamp(1 - waveLeft / waveSize)
-    const swing = wave === "build" ? 0.12 * u : wave === "peak" ? 0.2 : -0.18
+    // a breather still breathes late in the run, just less deeply
+    const swing =
+      wave === "build"
+        ? 0.12 * u
+        : wave === "peak"
+          ? 0.2
+          : -0.18 * (1 - 0.5 * tierK())
     // a rush skips the breathers and leans hard
     if (rushAt(at)) return clamp(plan() + Math.max(swing, 0) + 0.25, 0.03, 1)
     return clamp(plan() + swing, 0.03, 1)
@@ -1688,6 +1911,62 @@ function createGame(canvas                   , opts             )       {
     nextX = x0 + span + sec(0.9)
   }
 
+  /**
+   * A stretch of the shortcut, laid out for its pace: after its first
+   * stretch, a wall or a hole it cannot smash (at least one each shortcut,
+   * more often and late in pairs as the tiers climb), with room to take off
+   * before and to land after; then small things to smash for points.
+   * Nothing is laid out past `end`, where the shortcut is over.
+   */
+  function dashChunk(end        ) {
+    at = Math.floor(nextX / 17)
+    planK = dashK()
+    const put = (o                                          ) => {
+      things.push({ n: 1, vx: 0, dash: true, ...o })
+    }
+    let x = nextX
+    const hardK = 0.45 + 0.4 * tierK()
+    const walls =
+      x < dashHardX
+        ? 0
+        : dashWalls === 0 || rand() < hardK
+          ? rand() < 0.35 * tierK()
+            ? 2
+            : 1
+          : 0
+    for (let i = 0; i < walls; i++) {
+      // room to take off, the wall or the hole, then room to land
+      const hole = has("hole") && rand() < 0.45
+      const w = hole ? Math.min(56, speed * planK * 0.1) : 9
+      if (x + sec(0.4) + 2 * w > end) break
+      x += sec(0.4) + w
+      dashWalls += 1
+      if (hole) put({ kind: "hole", x, y: G, w, hard: true, mark: true })
+      else put({ kind: "tile2", x, y: G, hard: true, mark: true })
+      // pages along the arc of the jump that clears it, from take-off to
+      // landing, so they show the way over and never sit on the wall
+      const span = 2 * w + sec(0.36)
+      for (let j = 0; j < 4; j++) {
+        const u = j / 3
+        put({
+          kind: "scrap",
+          x: x + (u - 0.5) * span,
+          y: G - 18 - Math.sin(u * Math.PI) * 44,
+        })
+      }
+      x += w + sec(0.5)
+    }
+    const smash = 2 + Math.floor(rand() * 3)
+    for (let i = 0; i < smash && x < end; i++) {
+      const r = rand()
+      if (r < 0.5) put({ kind: "tile", x, y: G })
+      else put({ kind: "link", x, y: r < 0.75 ? LOW_Y : MID_Y })
+      put({ kind: "scrap", x: x + sec(0.09) + 12, y: G - 16 })
+      x += sec(0.18) + 24
+    }
+    nextX = x + sec(0.25)
+  }
+
   /** The flight is over: what is left in the sky fades away. */
   function endFlight() {
     warn = null
@@ -1698,8 +1977,14 @@ function createGame(canvas                   , opts             )       {
   function spawn() {
     // the flight: the sky brings its own things and the track below stays
     // empty, until a moment before the jet ends
-    if (boost === "jet" && boostT > FLIGHT_END) {
+    if (flying() && boostT > FLIGHT_END) {
       skyChunk()
+      return
+    }
+    // the shortcut: the track ahead is laid out for its pace
+    const dashTo = dashEnd()
+    if (nextX + speed * dashK() * 0.3 < dashTo) {
+      dashChunk(dashTo)
       return
     }
     at = Math.floor(nextX / 17)
@@ -1734,16 +2019,21 @@ function createGame(canvas                   , opts             )       {
       things.push(o)
       tail = Math.max(tail, o.x + half(o))
     }
-    // the rest after a pattern shrinks as the run heats up
-    const rest =
-      sec(0.62 + (1 - intensity) * 0.55) +
-      40 +
-      rand() * sec(0.35 * (1 - intensity * 0.7)) +
-      (fresh.length ? sec(0.4) : 0)
+    // the rest after a pattern shrinks as the run heats up, and again with
+    // the tiers; never under what a landing and a look ahead take
+    const rest = Math.max(
+      sec(0.42) + 30,
+      (sec(0.62 + (1 - intensity) * 0.55) +
+        40 +
+        rand() * sec(0.35 * (1 - intensity * 0.7))) *
+        (1 - 0.22 * tierK()) +
+        (fresh.length ? sec(0.4) : 0)
+    )
     const [extra, height, kind] = [rand(), rand(), rand()]
     if (chunk.id !== "breather" && extra < 0.55) {
       const high = height < 0.4
-      const aid = aids < 2 && at > 150 && kind < 0.1
+      // a loose band-aid now and then, rarer as the tiers climb
+      const aid = aids < 2 && at > 150 && kind < 0.1 * (1 - 0.6 * tierK())
       things.push({
         kind: aid ? "aid" : "scrap",
         x: tail + rest * 0.5,
@@ -1752,9 +2042,17 @@ function createGame(canvas                   , opts             )       {
         vx: 0,
       })
     }
-    // a clear box with the next piece of gear once it is due (until caught),
-    // or with a spent piece to charge again, or now and then a mystery
-    // parcel; all float at a full jump's height
+    const boxed = boxes(tail + rest * 0.5)
+    // jumping for a box needs room to land before the next pattern
+    nextX = tail + rest + (boxed ? sec(0.6) : 0)
+  }
+
+  /**
+   * A clear box with the next piece of gear once it is due (until caught),
+   * or with a spent piece to charge again, or now and then a mystery parcel;
+   * all float at a full jump's height, at `bx`. True when one was placed.
+   */
+  function boxes(bx        , yy = G - 62) {
     const newDue = run() >= gearScore(gear)
     const chargeDue = spent.length > 0 && run() >= rechargeAt
     const boxDue =
@@ -1765,28 +2063,25 @@ function createGame(canvas                   , opts             )       {
       !breathAt(at) &&
       t - mysteryAt > parcelGap &&
       !things.some((o) => o.kind === "mystery")
-    if (boxDue || parcelDue) {
-      const bx = tail + rest * 0.5
-      if (parcelDue) {
-        mysteryAt = t
-        // a full page meter brings parcels more often
-        parcelGap = (12 + luck() * 10) * (1 - 0.06 * level())
-      }
-      things = things.filter(
-        (o) => !((o.kind === "scrap" || o.kind === "aid") && o.x === bx)
-      )
-      things.push({
-        kind: boxDue ? "gearbox" : "mystery",
-        x: bx,
-        y: G - 62,
-        n: 1,
-        vx: 0,
-        lv: boxDue ? (newDue ? gear + 1 : spent[0]) : undefined,
-      })
-      firstOf(boxDue ? "gearbox" : "mystery")
+    if (!boxDue && !parcelDue) return false
+    if (parcelDue) {
+      mysteryAt = t
+      // a full page meter brings parcels more often
+      parcelGap = (12 + luck() * 10) * (1 - 0.06 * level())
     }
-    // jumping for a box needs room to land before the next pattern
-    nextX = tail + rest + (boxDue || parcelDue ? sec(0.6) : 0)
+    things = things.filter(
+      (o) => !((o.kind === "scrap" || o.kind === "aid") && o.x === bx)
+    )
+    things.push({
+      kind: boxDue ? "gearbox" : "mystery",
+      x: bx,
+      y: yy,
+      n: 1,
+      vx: 0,
+      lv: boxDue ? (newDue ? gear + 1 : spent[0]) : undefined,
+    })
+    firstOf(boxDue ? "gearbox" : "mystery")
+    return true
   }
 
   function friendBox() {
@@ -1823,6 +2118,7 @@ function createGame(canvas                   , opts             )       {
   function gainGear() {
     gear += 1
     charge[gear] = fullCharge(gear)
+    full[gear] = charge[gear] ?? 0
     accent = accentFor(gear)
     gearPop = slow ? 0 : 0.5
     happy = Math.max(happy, 0.6)
@@ -1837,6 +2133,7 @@ function createGame(canvas                   , opts             )       {
   function recharge(level        ) {
     const target = spent.includes(level) ? level : (spent[0] ?? level)
     charge[target] = fullCharge(target)
+    full[target] = charge[target] ?? 0
     spent = spent.filter((l) => l !== target)
     rechargeAt = run() + RECHARGE_GAP
     if (target === GILT) freeAidAt = nextFreeAid()
@@ -1869,6 +2166,15 @@ function createGame(canvas                   , opts             )       {
 
   function cleared(near         ) {
     combo += near ? (on(BEAT) ? 3 : 2) : 1
+  }
+
+  /** A wall or a hole jumped on the shortcut: a bonus, shown where it was. */
+  function dashCleared() {
+    combo += 1
+    addPoints(DASH_CLEAR)
+    nearPts = DASH_CLEAR * multiplier
+    nearT = 0.7
+    happy = Math.max(happy, 0.4)
   }
 
   /** Tell the page when a folder, gear box or parcel comes for the first time. */
@@ -1931,8 +2237,8 @@ function createGame(canvas                   , opts             )       {
     if (boost === "bubble" || boost === "jet" || boost === "dash") clearAhead()
     if (boost === "jet") endFlight()
     boost = kind
-    // a fuller page meter makes every boost last longer
-    boostT = seconds * strong(POWER_PER)
+    // the pages caught decide how long a boost lasts
+    boostT = seconds * pageTime()
     boostsCaught += 1
     happy = Math.max(happy, 0.6)
     if (kind === "jet") {
@@ -1944,6 +2250,7 @@ function createGame(canvas                   , opts             )       {
       glide = false
       gliding = false
     }
+    if (kind === "dash") dashTrack()
     reveal = { kind, born: t }
     opts.onBoost(kind, boostT)
   }
@@ -1958,7 +2265,11 @@ function createGame(canvas                   , opts             )       {
       const x = o.x - dist
       const near = x + half(o) > FX - 30 && x - half(o) < FX + reach
       if (!near) return true
-      if (isObstacle(o) && !o.knocked) o.knocked = t
+      if (
+        (isObstacle(o) || o.kind === "cable" || o.kind === "spam") &&
+        !o.knocked
+      )
+        o.knocked = t
       return !(o.kind === "hole" || o.kind === "chasm")
     })
     safe = Math.max(safe, 0.8)
@@ -1971,7 +2282,42 @@ function createGame(canvas                   , opts             )       {
     boostT = 0
     if (was === "bubble" || was === "jet" || was === "dash") clearAhead()
     if (was === "jet") endFlight()
+    // what was laid out for the shortcut's pace is too close for a run
+    if (was === "dash") dashLeftovers()
     opts.onBoost(null, 0)
+  }
+
+  /**
+   * The shortcut starts: the track not yet in view (as far as its wider view
+   * will show) was laid out for a run, so it is laid out again for the
+   * shortcut's pace. Pages stay; a box out there goes too (one that is due
+   * comes back after the shortcut), so none floats over a wall. Its first
+   * stretch only brings small things to smash.
+   */
+  function dashTrack() {
+    const edge = dist + (W * zoom) / Math.min(DASH_ZOOM, zoom)
+    things = things.filter(
+      (o) =>
+        o.x - half(o) <= edge ||
+        !(
+          isObstacle(o) ||
+          o.kind === "hole" ||
+          o.kind === "chasm" ||
+          o.kind === "pad" ||
+          o.kind === "gearbox" ||
+          o.kind === "mystery"
+        )
+    )
+    nextX = Math.min(nextX, edge + 20)
+    dashHardX = nextX + speed * dashK() * DASH_LEAD
+    dashWalls = 0
+  }
+
+  /** The shortcut is over: the small things laid out for it fade away. */
+  function dashLeftovers() {
+    for (const o of things)
+      if (o.dash && !o.hard && isObstacle(o) && !o.knocked) o.knocked = t
+    nextX = Math.max(nextX, dist + W + LOOK)
   }
 
   function launch() {
@@ -2006,6 +2352,8 @@ function createGame(canvas                   , opts             )       {
       bestCombo,
       folders,
       boosts: boostsCaught,
+      gear,
+      seconds: t,
     })
   }
 
@@ -2016,20 +2364,24 @@ function createGame(canvas                   , opts             )       {
     }
     if (state === "paused") return
     t += dt
-    // speed eases toward a comfortable top; after that the director's
-    // patterns and waves carry the difficulty, forever
+    // speed eases toward a comfortable top; each tier lifts that top a
+    // little more, up to a cap a person can still read; the director's
+    // patterns and waves carry the rest of the difficulty, forever
     const top = slow ? 0.6 : 1.3
     const base = slow ? 130 : 170
-    speed = base * (1 + top * (1 - Math.exp(-t / 75)))
+    speed = Math.min(
+      SPEED_CAP * (slow ? 0.6 : 1),
+      base * (1 + top * (1 - Math.exp(-t / 75))) +
+        TIER_SPEED * Math.min(tier, TIER_TOP) * (slow ? 0.6 : 1)
+    )
     // slow motion and the jet change the pace of the world, not the plan;
     // a rush runs a little faster (its patterns are spaced for it)
     const paceTo =
       (boost === "slow"
         ? Math.max(SLOW_PACE, Math.min(1, SLOW_FLOOR / speed))
         : 1) *
-      (boost === "jet" ? JET_PACE : 1) *
-      (boost === "dash" ? DASH_PACE : 1) *
-      (rushing ? RUSH_PACE : 1) *
+      (flying() ? JET_PACE : 1) *
+      (boost === "dash" ? dashK() : rushing ? RUSH_PACE : 1) *
       (1 - drag)
     drag = Math.max(0, drag - DRAG_EASE * dt)
     paceK += (paceTo - paceK) * Math.min(1, dt * 5)
@@ -2072,13 +2424,17 @@ function createGame(canvas                   , opts             )       {
       charge[level] = (charge[level] ?? 0) - dt
       if ((charge[level] ?? 0) <= 0) spend(level)
     }
-    // the sunglasses see further: the view zooms out, more with more pages
-    const zoomTo = on(GLASSES) ? 0.86 - 0.02 * level() : 1
+    // the sunglasses see further: the view zooms out, more with more pages;
+    // the shortcut pulls the view back too, to read what comes at its pace
+    const zoomTo = Math.min(
+      on(GLASSES) ? 0.86 - 0.02 * level() : 1,
+      boost === "dash" && state === "run" ? DASH_ZOOM : 1
+    )
     if (Math.abs(zoomTo - zoom) > 0.0005) {
       zoom += (zoomTo - zoom) * Math.min(1, dt * 2.5)
       view()
     }
-    if (boost === "jet") {
+    if (flying()) {
       if (jetT > 0) {
         // the take-off: up to just over the highest link
         jetT -= dt
@@ -2223,6 +2579,12 @@ function createGame(canvas                   , opts             )       {
       if (mood === "night") nightT = Math.max(nightT, NIGHT_LENGTH)
       opts.onZone(zone, mood)
     }
+    // a new tier every 1500 points: faster and harder from here on
+    const tr = Math.floor(along / TIER)
+    if (tr > tier) {
+      tier = tr
+      opts.onTier?.(tier)
+    }
     // the rush: faster, harder, raining scraps and double points; then a breath
     const rushNow = rushAt(along)
     if (rushNow !== rushing) {
@@ -2258,7 +2620,7 @@ function createGame(canvas                   , opts             )       {
       }
     }
     // the jet leaves a line of scraps to fly through
-    if (boost === "jet" && state === "run") {
+    if (flying() && state === "run") {
       lineT -= dt
       if (lineT <= 0) {
         lineT = 0.5
@@ -2306,9 +2668,15 @@ function createGame(canvas                   , opts             )       {
         !(o.knocked && o.knocked < t - 0.5)
     )
     const f = friendBox()
-    // a bubble, a jet or a shortcut goes through everything
+    // a bubble, a jet or a shortcut goes through everything on the ground;
+    // in the sky only a bubble or a shortcut does
     const shielded = boost === "bubble" || boost === "jet" || boost === "dash"
+    const skyShielded = boost === "bubble" || boost === "dash"
+    // the shortcut's walls and holes are not smashed: they are jumped
+    const hardNow = (o       ) => boost === "dash" && o.hard === true
     let overHole = false
+    let hardHole = false
+    let crashed = false
     for (const o of things) {
       if (o.taken || o.knocked) continue
       const b = box(o)
@@ -2318,16 +2686,19 @@ function createGame(canvas                   , opts             )       {
         if (!o.passed && b.r < f.l) {
           o.passed = true
           cleared(false)
+          if (hardNow(o)) dashCleared()
         }
         // both feet over the hole: a short grace to jump, then the fall
         if (
           !air &&
-          !shielded &&
+          (!shielded || hardNow(o)) &&
           state === "run" &&
           FX - 5 > b.l &&
           FX + 5 < b.r
-        )
+        ) {
           overHole = true
+          if (hardNow(o)) hardHole = true
+        }
         continue
       }
       // the redirect pad: run onto it for a long glide
@@ -2362,6 +2733,7 @@ function createGame(canvas                   , opts             )       {
           nearT = 0.7
         }
         cleared(near)
+        if (hardNow(o)) dashCleared()
       }
       if ((o.kind === "tile" || o.kind === "tile2") && overlapX)
         o.near = Math.min(o.near ?? 99, b.t - f.b)
@@ -2418,7 +2790,8 @@ function createGame(canvas                   , opts             )       {
           for (let i = 1; !usable(kind) && i < BOOST_KINDS.length; i++)
             kind = BOOST_KINDS[(pick + i) % BOOST_KINDS.length] ?? "bubble"
           startBoost(kind)
-        } else if (roll < 0.84) {
+        } else if (roll < 0.84 - 0.08 * tierK()) {
+          // a band-aid; later in the run a parcel is more often points
           addAid("shield")
         } else if (roll < 0.94) {
           const worth = 100 * multiplier
@@ -2439,19 +2812,40 @@ function createGame(canvas                   , opts             )       {
           opts.onBox("scraps", 0)
         }
       } else if (o.kind === "cable" || o.kind === "spam") {
-        // in the sky: a hit slows Nothing and spends the combo, but never
-        // ends the run
-        if (boost === "jet" && state === "run") {
+        // in the sky: a bubble or a shortcut knocks it aside; otherwise a
+        // hit takes a band-aid, and without one it ends the run, like a
+        // bump on the ground
+        if (!flying() || state !== "run") continue
+        if (skyShielded) {
           o.knocked = t
           o.passed = true
-          drag = Math.min(DRAG_TOP, drag + SKY_HIT)
-          combo = 0
-          stumble = Math.max(stumble, 0.3)
+          cleared(false)
+          if (boost === "dash") addPoints(10)
+          drag = Math.min(DRAG_TOP, drag + DRAG_HIT)
+          stumble = Math.max(stumble, 0.18)
           puff(FX + 12, G - y - 20, 3, 18)
+          continue
         }
-      } else if (state === "run" && shielded) {
+        if (safe > 0) continue
+        if (aids > 0) {
+          aids -= 1
+          o.knocked = t
+          o.passed = true
+          safe = 0.8
+          stumble = 0.35
+          combo = 0
+          drag = Math.min(DRAG_TOP, drag + SKY_HIT)
+          meter = Math.max(0, meter - METER_STEP)
+          opts.onShield(aids)
+          opts.onMeter(level())
+          puff(FX + 12, G - y - 20, 3, 18)
+          continue
+        }
+        end()
+        return
+      } else if (state === "run" && shielded && !hardNow(o)) {
         // knocked aside (a folder breaks open), and it still counts; the hit
-        // slows Nothing for a moment
+        // slows Nothing for a moment (the shortcut only a little: it flows)
         if (o.kind === "folder") breakFolder(o)
         else {
           o.knocked = t
@@ -2459,13 +2853,17 @@ function createGame(canvas                   , opts             )       {
           cleared(false)
           if (boost === "dash") addPoints(10)
         }
-        drag = Math.min(DRAG_TOP, drag + DRAG_HIT)
+        drag = Math.min(
+          DRAG_TOP,
+          drag + (boost === "dash" ? DASH_HIT : DRAG_HIT)
+        )
         stumble = Math.max(stumble, 0.18)
         puff(FX + 14, G - y - 18, 2.4, 16)
       } else if (state === "run" && safe <= 0) {
         if (aids > 0) {
           // a band-aid takes the bump: the block is knocked aside, and the
-          // combo and a level of the page meter are spent
+          // combo and a level of the page meter are spent; a wall on the
+          // shortcut ends it too
           aids -= 1
           o.knocked = t
           safe = 0.8
@@ -2474,16 +2872,34 @@ function createGame(canvas                   , opts             )       {
           meter = Math.max(0, meter - METER_STEP)
           opts.onShield(aids)
           opts.onMeter(level())
+          if (hardNow(o)) crashed = true
           continue
         }
         end()
         return
       }
     }
-    // the hole: a moment to jump (or a jump already on its way), then down
+    if (crashed) {
+      drag = DRAG_TOP
+      endBoost()
+    }
+    // the hole: a moment to jump (or a jump already on its way), then down;
+    // on the shortcut a band-aid saves Nothing from its holes with a bounce
     if (overHole && !(pendingJump && crouch > 0)) {
       holeT += dt
-      if (holeT > COYOTE) {
+      if (holeT > COYOTE && hardHole && aids > 0) {
+        aids -= 1
+        combo = 0
+        meter = Math.max(0, meter - METER_STEP)
+        opts.onShield(aids)
+        opts.onMeter(level())
+        launch()
+        vy = JUMP
+        stumble = 0.35
+        drag = DRAG_TOP
+        holeT = 0
+        endBoost()
+      } else if (holeT > COYOTE) {
         fell = true
         end()
         return
@@ -2575,7 +2991,7 @@ function createGame(canvas                   , opts             )       {
         `M${x - 4.5} ${top}V${g - 1.9}Q${x - 4.5} ${g} ${x - 2.6} ${g}H${x + 2.6}Q${x + 4.5} ${g} ${x + 4.5} ${g - 1.9}V${top}Z`
       )
       shape(f)
-      if (p.gear >= 3) {
+      if (worn(SNEAKERS)) {
         c.fillStyle = wear()
         c.lineWidth = 0.9
         const sole = new Path2D(
@@ -2707,8 +3123,9 @@ function createGame(canvas                   , opts             )       {
     // band-aids held: one on the body, the second at the back of the head
     if (p.side && (p.aids ?? 0) >= 1) strip(55.4, 42.8, 7, 24, ink)
     if (p.side && (p.aids ?? 0) >= 2) strip(58.6, 27.6, 6.6, -32, ink)
-    // sunglasses (knocked off by a bump), then headphones
-    if (p.gear >= 2 && p.eye !== "shut") {
+    // sunglasses (knocked off by a bump), then headphones; a spent piece is
+    // off until a box charges it again
+    if (worn(GLASSES) && p.eye !== "shut") {
       c.fillStyle = material()?.base ?? ink
       c.strokeStyle = ink
       c.lineWidth = 1.1
@@ -2753,7 +3170,7 @@ function createGame(canvas                   , opts             )       {
       c.stroke()
       c.strokeStyle = ink
     }
-    if (p.gear >= 1) {
+    if (worn(MAGNET)) {
       c.lineWidth = 2.3
       c.beginPath()
       if (p.side) {
@@ -2774,7 +3191,7 @@ function createGame(canvas                   , opts             )       {
       }
     }
     // the scarf (from the 5th gear): a band, and in profile a tail in the wind
-    if (p.gear >= 5) {
+    if (worn(SCARF)) {
       const f = slow ? 0 : Math.sin(t * 12) * 1.4
       c.fillStyle = wear()
       c.strokeStyle = ink
@@ -2919,11 +3336,15 @@ function createGame(canvas                   , opts             )       {
     c.restore()
   }
 
+  /** Nothing wears this piece right now: caught, and its power not spent. */
+  const worn = (piece        ) => gear >= piece && (charge[piece] ?? 0) > 0
+
   function pose()       {
     const p = ridePose()
     // on the skateboard Nothing stands on the deck, a little higher
     const lean = boost === "dash" && state === "run" ? -7 : 0
-    if (gear >= SKATE && p.side) return { ...p, g: p.g - 8, rot: p.rot + lean }
+    if (worn(SKATE) && !flying() && p.side)
+      return { ...p, g: p.g - 8, rot: p.rot + lean }
     return { ...p, rot: p.rot + lean }
   }
 
@@ -3001,7 +3422,7 @@ function createGame(canvas                   , opts             )       {
         tuft: -14 + tuftA,
       }
     }
-    if (boost === "jet") {
+    if (flying()) {
       // leaning into the flight, hands tucked
       return {
         ...base,
@@ -3087,7 +3508,7 @@ function createGame(canvas                   , opts             )       {
       }
     }
     // on the skateboard: feet together on the deck, a small forward crouch
-    if (gear >= SKATE) {
+    if (worn(SKATE)) {
       const sway = Math.sin(phase * Math.PI * 2)
       return {
         ...base,
@@ -3776,6 +4197,40 @@ function createGame(canvas                   , opts             )       {
     }
   }
 
+  /** A flag `tall` high where a run ended (`at`, world units), named on top. */
+  function flag(
+    at        ,
+    color        ,
+    tall        ,
+    text        ,
+    font        ,
+    ink        
+  ) {
+    const x = FX + at - dist
+    if (at <= 0 || x < -20 || x > W + 30) return
+    c.save()
+    c.translate(x, G)
+    c.lineWidth = 1.3
+    c.strokeStyle = ink
+    c.beginPath()
+    c.moveTo(0, 0)
+    c.lineTo(0, -tall)
+    c.stroke()
+    c.beginPath()
+    c.moveTo(0, -tall)
+    c.lineTo(16, -tall)
+    c.lineTo(12, 5 - tall)
+    c.lineTo(16, 10 - tall)
+    c.lineTo(0, 10 - tall)
+    c.closePath()
+    c.fillStyle = color
+    c.fill()
+    c.lineWidth = 1
+    c.stroke()
+    c.restore()
+    label(text, x + 8, G - tall - 5, font, ink)
+  }
+
   /** Text that stays readable in the mirrored (RTL) world. */
   function label(
     text        ,
@@ -3798,6 +4253,10 @@ function createGame(canvas                   , opts             )       {
     const ink = paint(style.color, "#252525")
     const fill = paint(style.backgroundColor, "#ffffff")
     const light = isLight(fill)
+    // on dark paper Nothing wears the mascot's night colours, like the site's
+    const [friendInk, friendFill] = light
+      ? [ink, fill]
+      : [NIGHT.line, NIGHT.body]
     const night = nightAmount()
     c.setTransform(1, 0, 0, 1, 0, 0)
     c.clearRect(0, 0, canvas.width, canvas.height)
@@ -3821,7 +4280,7 @@ function createGame(canvas                   , opts             )       {
     }
     c.fillStyle = wash
     c.fillRect(0, skyTop, W, G - skyTop)
-    if (rushing || boost === "jet") {
+    if (rushing || flying()) {
       c.fillStyle = rushing
         ? "rgba(255, 159, 94, 0.12)"
         : "rgba(127, 211, 214, 0.12)"
@@ -4000,6 +4459,22 @@ function createGame(canvas                   , opts             )       {
       c.fillRect(l, G, r - l, 20)
       c.globalAlpha = 1
     }
+    // the shortcut's holes: orange edges, so they read at its pace
+    c.strokeStyle = ORANGE
+    c.lineWidth = 2.2
+    c.beginPath()
+    for (const o of things) {
+      if (o.kind !== "hole" || !o.hard) continue
+      const l = o.x - dist - half(o)
+      const r = o.x - dist + half(o)
+      c.moveTo(l - 10, G)
+      c.lineTo(l, G)
+      c.lineTo(l, G + 12)
+      c.moveTo(r, G + 12)
+      c.lineTo(r, G)
+      c.lineTo(r + 10, G)
+    }
+    c.stroke()
     c.globalAlpha = 0.35
     c.lineWidth = 1.2
     c.beginPath()
@@ -4014,41 +4489,20 @@ function createGame(canvas                   , opts             )       {
     }
     c.stroke()
     c.globalAlpha = 1
-    // the flag where the best run ended: a fixed spot on the track, so it
-    // scrolls with the ground (bonus points never move it)
-    const bestAt = opts.bestDistance ?? 0
-    if (bestAt > 0) {
-      const fx = FX + bestAt - dist
-      if (fx > -20 && fx < W + 30) {
-        c.save()
-        c.translate(fx, G)
-        c.lineWidth = 1.3
-        c.strokeStyle = ink
-        c.beginPath()
-        c.moveTo(0, 0)
-        c.lineTo(0, -38)
-        c.stroke()
-        c.beginPath()
-        c.moveTo(0, -38)
-        c.lineTo(16, -38)
-        c.lineTo(12, -33)
-        c.lineTo(16, -28)
-        c.lineTo(0, -28)
-        c.closePath()
-        c.fillStyle = ORANGE
-        c.fill()
-        c.lineWidth = 1
-        c.stroke()
-        c.restore()
-        label(
-          opts.num(opts.best),
-          fx + 8,
-          G - 43,
-          "600 8px ui-monospace, Menlo, Consolas, monospace",
-          ink
-        )
-      }
-    }
+    // flags where runs ended: fixed spots on the track, so they scroll with
+    // the ground (bonus points never move them); the board's best in their
+    // medals' colours, the player's own best in orange
+    const names = `600 8px ${style.fontFamily}`
+    for (const [i, rival] of (opts.rivals ?? []).entries())
+      flag(rival.distance, rival.color, 50 - i * 4, rival.name, names, ink)
+    flag(
+      opts.bestDistance ?? 0,
+      ORANGE,
+      38,
+      opts.num(opts.best),
+      "600 8px ui-monospace, Menlo, Consolas, monospace",
+      ink
+    )
     // dust left on the ground, drifting back and fading
     c.strokeStyle = ink
     c.lineWidth = 1
@@ -4095,8 +4549,19 @@ function createGame(canvas                   , opts             )       {
       } else if (o.kind === "tile")
         for (let i = 0; i < o.n; i++)
           tile(x - 11 * (o.n - 1) + 22 * i, 1, ink, fill)
-      else if (o.kind === "tile2") tile(x, 2, ink, fill)
-      else if (o.kind === "link") link(x, o.y, ink)
+      else if (o.kind === "tile2") {
+        tile(x, 2, ink, fill)
+        // the shortcut's wall: orange edged, with an orange cap
+        if (o.hard) {
+          c.beginPath()
+          c.roundRect(x - 12.5, G - 45.5, 25, 45.5, 5.5)
+          c.lineWidth = 2
+          c.strokeStyle = ORANGE
+          c.stroke()
+          c.fillStyle = ORANGE
+          c.fillRect(x - 9, G - 48, 18, 3)
+        }
+      } else if (o.kind === "link") link(x, o.y, ink)
       else if (o.kind === "spinner") spinner(x, ink, fill)
       else if (o.kind === "pad") pad(x, ink)
       else if (o.kind === "folder") folder(x, ink)
@@ -4199,9 +4664,38 @@ function createGame(canvas                   , opts             )       {
         ink
       )
     }
+    // the shortcut: a wall or a hole is coming that it cannot smash; the "!"
+    // at the edge blinks faster as it nears
+    if (boost === "dash" && state === "run") {
+      const next = things.find(
+        (o) => o.hard && !o.passed && !o.knocked && o.x - dist - half(o) > W
+      )
+      const gap = next ? next.x - dist - half(next) - W : 0
+      if (next && gap < LOOK) {
+        const near = 1 - gap / LOOK
+        const lit = slow || Math.sin(t * (14 + near * 26)) > -0.2
+        const wy = next.kind === "hole" ? G - 12 : G - 30
+        c.save()
+        c.globalAlpha = lit ? 0.95 : 0.45
+        c.beginPath()
+        c.arc(W - 13, wy, 7.5, 0, Math.PI * 2)
+        c.fillStyle = ORANGE
+        c.fill()
+        c.lineWidth = 1.2
+        c.strokeStyle = ink
+        c.stroke()
+        c.restore()
+        label(
+          "!",
+          W - 13,
+          wy + 4.2,
+          "800 11px ui-monospace, Menlo, Consolas, monospace",
+          ink
+        )
+      }
+    }
     // the sunglasses' jump guide, on the ground
-    if (on(GLASSES) && state === "run" && !air && boost !== "jet")
-      jumpGuide(ink)
+    if (on(GLASSES) && state === "run" && !air && !flying()) jumpGuide(ink)
     // the sunglasses: a faint "!" at the edge for what is about to come in
     if (on(GLASSES) && state === "run") {
       const coming = things
@@ -4230,7 +4724,7 @@ function createGame(canvas                   , opts             )       {
     }
     const p = pose()
     // the jet: streaks behind
-    if (boost === "jet" && !slow) {
+    if (flying() && !slow) {
       c.strokeStyle = ORANGE
       c.lineCap = "round"
       for (const [dy, len, w, a] of [
@@ -4276,7 +4770,7 @@ function createGame(canvas                   , opts             )       {
       }
       c.globalAlpha = 1
     }
-    const skating = gear >= SKATE && state !== "over" && p.side
+    const skating = worn(SKATE) && !flying() && state !== "over" && p.side
     if (skating) {
       if (on(SKATE) && !air && state === "run" && !slow) {
         c.strokeStyle = ink
@@ -4303,7 +4797,7 @@ function createGame(canvas                   , opts             )       {
         [1, 0.24],
       ]         ) {
         c.globalAlpha = a
-        friend({ ...p, x: p.x - 15 * i }, ink, fill)
+        friend({ ...p, x: p.x - 15 * i }, friendInk, friendFill)
       }
       c.globalAlpha = 1
       c.strokeStyle = ORANGE
@@ -4325,7 +4819,7 @@ function createGame(canvas                   , opts             )       {
     }
     if (safe > 0 && !slow)
       c.globalAlpha = 0.55 + 0.45 * Math.abs(Math.sin(t * 18))
-    friend(p, ink, fill)
+    friend(p, friendInk, friendFill)
     c.globalAlpha = 1
     // fine gear glints: silver once, gold twice, obsidian three times
     const mat = material()
@@ -4448,15 +4942,15 @@ function createGame(canvas                   , opts             )       {
       c.restore()
     }
     // the powers, on a shelf under the ground: each piece worn, a bar for
-    // the time left or dots for the uses left; a spent piece is faded until
-    // a box charges it again
-    const worn = Math.min(gear, GILT)
-    if (worn > 0 && state !== "over") {
+    // the time left or dots for the uses left; a spent piece has come off
+    // Nothing, and its slot stays dim until a box charges it again
+    const shelf = Math.min(gear, GILT)
+    if (shelf > 0 && state !== "over") {
       c.save()
       c.fillStyle = fill
       c.globalAlpha = 0.85
       c.beginPath()
-      c.roundRect(3, G + 2, worn * 19 + 4, 17, 4)
+      c.roundRect(3, G + 2, shelf * 19 + 4, 17, 4)
       c.fill()
       // a fuller page meter makes every power better: the shelf glows orange
       if (level() > 0) {
@@ -4466,14 +4960,14 @@ function createGame(canvas                   , opts             )       {
         c.stroke()
       }
       c.restore()
-      for (let level = 1; level <= worn; level++) {
+      for (let level = 1; level <= shelf; level++) {
         const power = POWERS[level]
         const left = charge[level] ?? 0
         const x = 14.5 + (level - 1) * 19
         const ending = power?.time && left > 0 && left < 3 && !slow
         c.save()
         c.globalAlpha =
-          left <= 0 ? 0.25 : ending && Math.sin(t * 16) < 0 ? 0.45 : 1
+          left <= 0 ? 0.18 : ending && Math.sin(t * 16) < 0 ? 0.45 : 1
         c.translate(x, G + 8.5)
         c.scale(0.7, 0.7)
         gearIcon(level, ink, fill, material()?.base)
@@ -4482,7 +4976,7 @@ function createGame(canvas                   , opts             )       {
         c.fillStyle =
           material()?.base ?? (level >= opts.gearAt.length ? accent : ORANGE)
         if (power?.time) {
-          const u = clamp(left / (power.time * strong(POWER_PER)))
+          const u = clamp(left / Math.max(1e-6, full[level] ?? left))
           c.globalAlpha = 0.3
           c.fillRect(x - 6.5, G + 15.6, 13, 1.8)
           c.globalAlpha = 1
@@ -4556,7 +5050,7 @@ function createGame(canvas                   , opts             )       {
       }
       if (holding) return
       holding = true
-      if (boost === "jet") return
+      if (flying()) return
       if (air) {
         // the sneakers: one more jump in the air (well above the ground;
         // close to it the press waits for the landing as before)
@@ -4582,7 +5076,7 @@ function createGame(canvas                   , opts             )       {
     },
     down() {
       downHeld = true
-      if (air && state === "run" && boost !== "jet") {
+      if (air && state === "run" && !flying()) {
         dropping = true
         if (vy > 0) vy = 0
       }
@@ -4624,7 +5118,7 @@ function createGame(canvas                   , opts             )       {
       folders,
       ducking,
       gear,
-      skating: gear >= SKATE,
+      skating: worn(SKATE) && !flying(),
       powers: Array.from({ length: GILT + 1 }, (_, level) =>
         Math.max(0, charge[level] ?? 0)
       ),
@@ -4636,6 +5130,9 @@ function createGame(canvas                   , opts             )       {
       boostLeft: Math.max(0, boostT),
       drag,
       zoom,
+      hard: things
+        .filter((o) => o.hard && !o.passed && !o.knocked)
+        .map((o)                   => [Math.round(o.x - dist), o.kind]),
       jumpClear: jumpClears(speed * paceK),
       rush: rushing,
       doubled,
@@ -4646,6 +5143,7 @@ function createGame(canvas                   , opts             )       {
       zone,
       mood,
       intensity,
+      tier,
       wave,
       chunk: recent[0] ?? "",
       seed,
@@ -4688,7 +5186,7 @@ const T={
   gear:['هدفون: آهن‌ربای قوی تکه‌ها، ۲۰ ثانیه!','عینک: ۲۰ ثانیه راهنمای پرش و دید بازتر!','کفش: ۶ پرش دوم بلند در هوا!','ضرب: ۲۰ ثانیه رد شدن از نزدیک پنج‌برابر!','شال‌گردن: ۴ بار نگه دار و سُر بخور!','اسکیت: ۲۰ ثانیه امتیاز ×۳!','طلایی: ۳ چسب زخم، هر ۵۰۰ یکی!','رنگ تازه!'],
   powerOut:'یک قدرت تمام شد: جعبهٔ + را بگیر تا دوباره شارژ شود',
   tips:{folder:'پوشه! رویش فرود بیا (یا در هوا ↓) تا باز شود',folderTouch:'پوشه! رویش فرود بیا (یا در هوا به پایین بکش) تا باز شود',gearbox:'جعبهٔ لباس! بپر و بگیرش',mystery:'جعبهٔ شانسی! بپر و ببین چه درمی‌آید'},
-  boosts:{bubble:'حباب!',magnet:'آهن‌ربای قوی!',slow:'آهسته!',triple:'امتیاز ×۳!',jet:'جت! نگه دار تا بالا بروی، ول کن تا پایین بیایی',dash:'میان‌بر!'},
+  boosts:{bubble:'حباب!',magnet:'آهن‌ربای قوی!',slow:'آهسته!',triple:'امتیاز ×۳!',jet:'جت! نگه دار تا بالا بروی، ول کن تا پایین بیایی',dash:'میان‌بر! چیزهای کوچک را بشکن، از دیوارها و چاله‌های نارنجی بپر'},
   tiers:{2:'صفحه‌ها: لباس‌ها نقره‌ای شد و همهٔ قدرت‌ها بهتر!',4:'صفحه‌ها: لباس‌ها طلایی شد و همهٔ قدرت‌ها بهتر!',5:'صفحه‌ها: لباس‌ها ابسیدین شد، بهترین حالت!'},
   meterUp:l=>`صفحه‌ها: همهٔ قدرت‌ها بیشتر و بهتر شد (سطح ${l})`,meter:l=>`شمارندهٔ صفحه: سطح ${l} از ۵`,shieldCount:c=>`${c} چسب زخم: هر کدام یک برخورد را می‌بخشد`,
   recap:(p,c,f)=>`${p} صفحه · ${f} پوشه · بهترین کمبو ${c} برابر`,rush:'هجوم! امتیاز ×۲',breather:'نفس تازه کن',multiplier:m=>`ضریب امتیاز: ×${m}`,box:{shield:'چسب زخم!',points:p=>`+${p}`,scraps:'باران تکه!',pages:'۱۰۰ صفحه: چسب زخم!',patched:'سه چسب زخم: هیچ‌چیز جلودارت نیست!'},zones:['منطقهٔ تازه: بارگذاری','منطقهٔ تازه: پنجره‌های مزاحم','منطقهٔ تازه: تغییر مسیر'],
@@ -4699,7 +5197,7 @@ const T={
   gear:['Headphones: super scrap magnet for 20 s!','Sunglasses: jump guide and a wider view for 20 s!','Sneakers: 6 high double jumps!','Beat: near misses ×5 for 20 s!','Scarf: 4 glides, hold to glide!','Skateboard: points ×3 for 20 s!','Gold: 3 band-aids, one every 500!','New colour!'],
   powerOut:'A power ran out: catch a + box to charge it again',
   tips:{folder:'A folder! Land on it (or press ↓ in the air) to break it open',folderTouch:'A folder! Land on it (or swipe down in the air) to break it open',gearbox:'A gear box! Jump to catch it',mystery:'A mystery box! Jump to see what is inside'},
-  boosts:{bubble:'Bubble!',magnet:'Super magnet!',slow:'Slow motion!',triple:'Points ×3!',jet:'Jet! Hold to climb, let go to sink',dash:'Shortcut!'},
+  boosts:{bubble:'Bubble!',magnet:'Super magnet!',slow:'Slow motion!',triple:'Points ×3!',jet:'Jet! Hold to climb, let go to sink',dash:'Shortcut! Smash the small stuff, jump the orange walls and holes'},
   tiers:{2:'Pages: your gear turned silver, every power better!',4:'Pages: your gear turned gold, every power better!',5:'Pages: your gear turned obsidian, the very best!'},
   meterUp:l=>`Pages: every power lasts longer and works better (level ${l})`,meter:l=>`Page meter: level ${l} of 5`,shieldCount:c=>`${c} band-aids: each forgives one bump`,
   recap:(p,c,f)=>`${p} pages · best combo ×${c} · ${f} folders`,rush:'Rush! Points ×2',breather:'Catch your breath',multiplier:m=>`Points multiplier: ×${m}`,box:{shield:'Band-aid!',points:p=>`+${p}`,scraps:'Scrap shower!',pages:'100 pages: a band-aid!',patched:'Three band-aids: unstoppable!'},zones:['New zone: Loading','New zone: Pop-ups','New zone: Redirects'],
@@ -4744,11 +5242,12 @@ function showBoost(kind,seconds){
 }
 function hud(){$('score').textContent=num(last.score,1);const m=$('mult');m.hidden=mult<=1;m.textContent='×'+num(mult);m.setAttribute('aria-label',t().multiplier(num(mult)));$('shield').setAttribute('aria-label',t().shield);$('best').innerHTML=best?`${t().best} <span class="num">${num(best,1)}</span>`:'';$('pieces').textContent='×'+num(last.pieces);meterHud();aidHud();}
 NothingFriendBox.mount($('friend'),{variant:'notFound'});
-// short messages wait their turn, so one never hides another
+// short messages wait their turn, so one never hides another; a quiet gap follows each,
+// and one that waited over 3 s is dropped (as on the site)
 const toastQ=[];let toastOn=false;
-function nextToast(){const m=toastQ.shift();toastOn=!!m;$('toastSlot').innerHTML=m?`<div class="toast" style="animation-duration:${m.ms}ms"><b>${m.title}</b></div>`:'';if(m)toastT=setTimeout(nextToast,m.ms);}
+function nextToast(){let m=toastQ.shift();while(m&&Date.now()-m.at>3000)m=toastQ.shift();toastOn=!!m;$('toastSlot').innerHTML=m?`<div class="toast" style="animation-duration:${m.ms}ms"><b>${m.title}</b></div>`:'';if(m)toastT=setTimeout(()=>{$('toastSlot').innerHTML='';toastT=setTimeout(nextToast,600);},m.ms);}
 // small news (minor) never pushes a zone, gear or boost out of the way
-function toast(title,minor,ms=1300){if(minor&&(toastOn||toastQ.length))return;toastQ.push({title,ms});if(toastQ.length>3)toastQ.splice(0,toastQ.length-3);if(!toastOn)nextToast();}
+function toast(title,minor,ms=1300){if(minor&&(toastOn||toastQ.length))return;toastQ.push({title,ms,at:Date.now()});if(toastQ.length>2)toastQ.splice(0,toastQ.length-2);if(!toastOn)nextToast();}
 function start(){
  if(game)return;state='run';$('card').dataset.playing='';$('start').hidden=true;$('band').hidden=false;$('desc').hidden=true;hint();
  game=NothingFriendGame.createGame($('canvas'),{rtl:lang==='fa',reducedMotion:reduce.matches,tileLabel:t().tile,num:v=>num(v),gearAt:GEAR_AT,
@@ -4758,18 +5257,19 @@ function start(){
   ...(q.get('luck')?{luck:()=>Number(q.get('luck'))}:{}),
   onScore:s=>{last.score=s;hud();const h=Math.floor(s/500);if(h<milestone)milestone=h;else if(h>milestone){milestone=h;const f=$('flash');f.classList.remove('on');void f.offsetWidth;f.classList.add('on');}},
   onPieces:p=>{last.pieces=p;hud();},onShield:n=>{aids=n;aidHud();},
-  onMeter:l=>{if(l===0)tiersShown.clear();if(l>meterLevel){const fresh=t().tiers[l]&&!tiersShown.has(l);if(t().tiers[l])tiersShown.add(l);toast(fresh?t().tiers[l]:t().meterUp(num(l)));}meterLevel=l;meterHud();},
-  onRecord:()=>toast(t().record),onBox:(o,p)=>{const b=t().box[o];toast(typeof b==='function'?b(num(p)):b,o==='points'||o==='scraps');},
+  // the bar shows each level; a message only when the gear turns finer, once a run
+  onMeter:l=>{if(l===0)tiersShown.clear();if(l>meterLevel&&t().tiers[l]&&!tiersShown.has(l)){tiersShown.add(l);toast(t().tiers[l]);}meterLevel=l;meterHud();},
+  onRecord:()=>toast(t().record),// points and a scrap shower say nothing: the score shows them
+  onBox:o=>{if(o==='points'||o==='scraps')return;toast(t().box[o]);},
   // the jet says how to steer it, so it stays a little longer
-  onBoost:(kind,seconds)=>{showBoost(kind,seconds);if(kind)toast(t().boosts[kind],false,kind==='jet'?2000:1300);},
+  onBoost:(kind,seconds)=>{showBoost(kind,seconds);if(kind)toast(t().boosts[kind],false,kind==='jet'||kind==='dash'?2000:1300);},
   onMultiplier:m=>{const up=m>mult;mult=m;hud();if(up){const el=$('mult');el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}},
-  onRush:on=>toast(on?t().rush:t().breather),
+  onRush:on=>{if(on)toast(t().rush);},
   // the first folder, gear box and parcel ever (in this browser): a hint, a little longer
   onFirst:thing=>{let seen=[];try{seen=JSON.parse(localStorage.getItem('nothing.404.tips')||'[]');if(!Array.isArray(seen))seen=[];if(seen.includes(thing))return;localStorage.setItem('nothing.404.tips',JSON.stringify([...seen,thing]));}catch{}
    toast(thing==='folder'&&coarse.matches?t().tips.folderTouch:t().tips[thing],false,2600);},
   onGear:l=>toast(t().gear[Math.min(l,t().gear.length)-1]),
-  // a piece charged again says its power once more; one that runs out says so
-  onPower:(l,charged)=>toast(charged?t().gear[l-1]:t().powerOut),
+  // a power running out or charged again says nothing: the gear shelf shows it
   onZone:(zone,mood)=>{if(mood)toast(t().moodToast(t().moods[mood]));else if(t().zones[zone-1])toast(t().zones[zone-1]);},
   onState:s=>{state=s;if(boostAnim){if(s==='run'&&boostAnim.playState==='paused')boostAnim.play();else if(s!=='run')boostAnim.pause();}if(s==='over'){clearTimeout(toastT);toastQ.length=0;toastOn=false;$('toastSlot').innerHTML='';}$('paused').hidden=s!=='paused';$('over').hidden=s!=='over';},
   onOver:({score,distance,pieces,bestCombo,folders})=>{$('overRecap').textContent=t().recap(num(pieces),num(bestCombo),num(folders));if(score>best){best=score;bestAt=distance;try{localStorage.setItem('nothing.404.best',String(best));localStorage.setItem('nothing.404.bestAt',String(bestAt))}catch{}}
@@ -4790,11 +5290,13 @@ addEventListener('keydown',e=>{
 });
 addEventListener('keyup',e=>{if(JUMP.has(e.code)&&game)game.release();if(DOWN.has(e.code)&&game)game.up();});
 $('start').addEventListener('click',start);$('playBtn').addEventListener('click',start);
-// touch: tap jumps, a swipe down ducks (or drops faster in the air)
-let swipe=null;
-$('band').addEventListener('pointerdown',e=>{if(!game||interactive(e.target))return;e.preventDefault();swipe={y:e.clientY,down:false};game.press();});
-$('band').addEventListener('pointermove',e=>{if(!game||!swipe||swipe.down||e.clientY-swipe.y<18)return;swipe.down=true;game.release();game.down();});
-for(const ev of ['pointerup','pointercancel','pointerleave'])$('band').addEventListener(ev,()=>{if(!game)return;game.release();if(swipe&&swipe.down)game.up();swipe=null;});
+// touch: tap jumps, a swipe down ducks (or drops faster in the air); a finger waits 70 ms
+// before it jumps, so a swipe down never starts with a jump; a mouse jumps at once
+let swipe=null;const TOUCH_WAIT=70;
+const jumpNow=sw=>{clearTimeout(sw.timer);if(sw.pressed||sw.down||!game)return;sw.pressed=true;game.press();};
+$('band').addEventListener('pointerdown',e=>{if(!game||interactive(e.target))return;e.preventDefault();const sw={y:e.clientY,down:false,pressed:false,timer:0};swipe=sw;if(e.pointerType==='mouse')jumpNow(sw);else sw.timer=setTimeout(()=>jumpNow(sw),TOUCH_WAIT);});
+$('band').addEventListener('pointermove',e=>{if(!game||!swipe||swipe.down||e.clientY-swipe.y<(swipe.pressed?18:10))return;clearTimeout(swipe.timer);swipe.down=true;if(swipe.pressed)game.release();game.down();});
+for(const ev of ['pointerup','pointercancel','pointerleave'])$('band').addEventListener(ev,()=>{if(!game)return;if(swipe)jumpNow(swipe);game.release();if(swipe&&swipe.down)game.up();swipe=null;});
 $('pause').addEventListener('click',()=>game&&(state==='paused'?game.resume():game.pause()));
 $('resume').addEventListener('click',()=>game&&game.resume());
 $('again').addEventListener('click',()=>{if(game){game.restart();$('again').blur();}});
